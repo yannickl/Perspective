@@ -28,7 +28,7 @@ import CoreMotion
 import Foundation
 import UIKit
 
-public final class PerspectiveMotionBehabior: PerspectiveViewBehavior {
+public final class PerspectiveMotionBehabior: PerspectiveBehavior {
   private let lowPassRatio: CGFloat = 0.25
   private let motionManager = CMMotionManager()
   private lazy var backgroundQueue: OperationQueue = {
@@ -40,7 +40,7 @@ public final class PerspectiveMotionBehabior: PerspectiveViewBehavior {
 
   public private(set) var offset: CGPoint = .zero
 
-  weak public var delegate: PerspectiveViewBehaviorDelegate? = nil
+  weak public var delegate: PerspectiveBehaviorDelegate? = nil
 
   deinit {
     if motionManager.isAccelerometerActive {
@@ -48,7 +48,7 @@ public final class PerspectiveMotionBehabior: PerspectiveViewBehavior {
     }
   }
 
-  public func setup(with view: UIView & PerspectiveViewBehaviorDelegate) {
+  public func setup(with view: UIView & PerspectiveBehaviorDelegate) {
     delegate = view
 
     if motionManager.isAccelerometerAvailable {

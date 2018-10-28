@@ -32,14 +32,14 @@ final public class PerspectiveView: UIView {
   public var movementCoordinator: PerspectiveMovementCoordinator = PerspectiveParallaxCoordinator()
 
   /**
-   The list of views stacked by the perspective view.
+   The list of sheets used to create the parallax effect.
    */
-  private var stackedSubviews: [PerspectiveSubviewContainer] = []
+  private var sheets: [PerspectiveSheet] = []
 
   /**
    The gesture-recognizer objects currently attached to the view.
    */
-  public private(set) var behaviors: [PerspectiveViewBehavior] = []
+  public private(set) var behaviors: [PerspectiveBehavior] = []
 
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -69,29 +69,36 @@ final public class PerspectiveView: UIView {
   /**
    Adds a view to the end of the stackedSubviews array.
    */
-  public func addStackedSubview(_ view: UIView, distance: CGFloat? = nil) {
-    let container = PerspectiveSubviewContainer(view: view, distance: distance)
+  public func addStackedSubview(_ view: UIView) {
+    let layer = PerspectiveSheet(view: view, distance: nil, offset: .zero)
 
-    stackedSubviews.append(container)
-    parallaxView.addSubview(view)
+    addLayer(layer)
+  }
+
+  public func addLayer(_ layer: PerspectiveSheet) {
+    sheets.append(layer)
+
+    layer.view.frame = CGRect(origin: layer.offset, size: layer.view.frame.size)
+    
+    parallaxView.addSubview(layer.view)
   }
 
   /**
    Attaches a gesture recognizer to the view.
  */
-  public func addBehavior(_ behavior: PerspectiveViewBehavior) {
+  public func addBehavior(_ behavior: PerspectiveBehavior) {
     behaviors.append(behavior)
 
     behavior.setup(with: self)
   }
 }
 
-extension PerspectiveView: PerspectiveViewBehaviorDelegate {
-  public func behavior(_ behavior: PerspectiveViewBehavior, didUpdate offset: CGPoint) {
+extension PerspectiveView: PerspectiveBehaviorDelegate {
+  public func behavior(_ behavior: PerspectiveBehavior, didUpdate offset: CGPoint) {
     let offset: CGPoint = behaviors.reduce(.zero) { acc, behavior in
       return CGPoint(x: acc.x + behavior.offset.x, y: acc.y + behavior.offset.y)
     }
 
-    movementCoordinator.updatePosition(of: stackedSubviews, offset: offset)
+    movementCoordinator.updatePosition(of: sheets, offset: offset)
   }
 }

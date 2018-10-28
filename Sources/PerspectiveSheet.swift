@@ -24,16 +24,11 @@
  *
  */
 
+import Foundation
 import UIKit
 
-public protocol PerspectiveViewBehaviorDelegate: class {
-  func behavior(_ behavior: PerspectiveViewBehavior, didUpdate offset: CGPoint)
-}
-
-public protocol PerspectiveViewBehavior {
-  var delegate: PerspectiveViewBehaviorDelegate? { get set }
-
-  var offset: CGPoint { get }
-
-  func setup(with view: UIView & PerspectiveViewBehaviorDelegate)
+public struct PerspectiveSheet {
+  let view: UIView
+  let distance: CGFloat?
+  let offset: CGPoint
 }

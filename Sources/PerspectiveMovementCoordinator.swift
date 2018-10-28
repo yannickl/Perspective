@@ -27,5 +27,5 @@
 import UIKit
 
 public protocol PerspectiveMovementCoordinator {
-  func updatePosition(of subviews: [PerspectiveSubviewContainer], offset: CGPoint)
+  func updatePosition(of layers: [PerspectiveSheet], offset: CGPoint)
 }

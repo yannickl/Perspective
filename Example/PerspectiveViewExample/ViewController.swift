@@ -14,13 +14,14 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
+    let contentSize = CGSize(width: 1520, height: 812) // CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
 
-    for i in stride(from: 7, to: 0, by: -1) {
-      let imgView = UIImageView(image: UIImage(named: "castle-layer0\(i)"))
-      imgView.frame = CGRect(origin: .zero, size: contentSize)
+    for i in stride(from: 6, to: 0, by: -1) {
+      let imgView = UIImageView(image: UIImage(named: "candy-layer0\(i)"))
+      imgView.frame = CGRect(origin: .zero, size: CGSize(width: 1600, height: 900))
 
-      perspectiveView.addStackedSubview(imgView)
+      let layer = PerspectiveSheet(view: imgView, distance: 0, offset: CGPoint(x: -40 * i, y: 0))
+      perspectiveView.addLayer(layer)
     }
 
     let scrollBehavior = PerspectiveScrollBehavior()

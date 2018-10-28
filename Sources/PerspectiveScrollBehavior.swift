@@ -27,19 +27,22 @@
 import Foundation
 import UIKit
 
-final public class PerspectiveScrollBehavior: NSObject, PerspectiveViewBehavior {
+final public class PerspectiveScrollBehavior: NSObject, PerspectiveBehavior {
   private let scrollView = UIScrollView()
 
-  weak public var delegate: PerspectiveViewBehaviorDelegate? = nil
+  weak public var delegate: PerspectiveBehaviorDelegate? = nil
 
   /**
    The size of the content view.
 
    The unit of size is points. The default size is CGSizeZero.
    */
-  public var contentSize: CGSize = .zero {
-    didSet {
-      scrollView.contentSize = contentSize
+  public var contentSize: CGSize {
+    get {
+      return scrollView.contentSize
+    }
+    set {
+      scrollView.contentSize = newValue
     }
   }
 
@@ -47,7 +50,7 @@ final public class PerspectiveScrollBehavior: NSObject, PerspectiveViewBehavior 
     return scrollView.contentOffset
   }
 
-  public func setup(with view: UIView & PerspectiveViewBehaviorDelegate) {
+  public func setup(with view: UIView & PerspectiveBehaviorDelegate) {
     view.addSubview(scrollView)
 
     delegate = view

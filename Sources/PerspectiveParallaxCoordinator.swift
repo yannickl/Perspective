@@ -27,13 +27,13 @@
 import UIKit
 
 final public class PerspectiveParallaxCoordinator: PerspectiveMovementCoordinator {
-  public func updatePosition(of subviews: [PerspectiveSubviewContainer], offset: CGPoint) {
-    let distributedDistanceRatio = 1 / CGFloat(subviews.count - 1)
+  public func updatePosition(of layers: [PerspectiveSheet], offset: CGPoint) {
+    let distributedDistanceRatio = 1 / CGFloat(layers.count - 1)
 
-    for (i, sv) in subviews.enumerated() {
+    for (i, sv) in layers.enumerated() {
       var vf = sv.view.frame
-      vf.origin.x = offset.x * distributedDistanceRatio * CGFloat(i) * -1
-      vf.origin.y = offset.y * distributedDistanceRatio * CGFloat(i) * -1
+      vf.origin.x = sv.offset.x + offset.x * distributedDistanceRatio * CGFloat(i) * -1
+      vf.origin.y = sv.offset.y + offset.y * distributedDistanceRatio * CGFloat(i) * -1
 
       sv.view.frame = vf
     }

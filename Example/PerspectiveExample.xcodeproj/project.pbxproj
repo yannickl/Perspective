@@ -19,8 +19,8 @@
 		CE383FBE21849FC00077409B /* PerspectiveParallaxCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */; };
 		CE383FC02184AB440077409B /* PerspectiveMotionBehabior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FBF2184AB440077409B /* PerspectiveMotionBehabior.swift */; };
 		CE383FC22184ACE90077409B /* PerspectiveScrollBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */; };
-		CE383FC42184AE690077409B /* PerspectiveViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC32184AE690077409B /* PerspectiveViewBehavior.swift */; };
-		CE383FC62184F7D80077409B /* PerspectiveSubviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC52184F7D80077409B /* PerspectiveSubviewContainer.swift */; };
+		CE383FC42184AE690077409B /* PerspectiveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC32184AE690077409B /* PerspectiveBehavior.swift */; };
+		CE383FC821861B760077409B /* PerspectiveSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC721861B760077409B /* PerspectiveSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,17 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE383F832184739C0077409B /* PerspectiveViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerspectiveViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE383F832184739C0077409B /* PerspectiveExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerspectiveExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE383F862184739C0077409B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE383F882184739C0077409B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE383F8B2184739C0077409B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE383F8D2184739E0077409B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE383F902184739E0077409B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE383F922184739E0077409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE383F972184739E0077409B /* PerspectiveViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE383F972184739E0077409B /* PerspectiveExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE383F9B2184739E0077409B /* PerspectiveViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveViewExampleTests.swift; sourceTree = "<group>"; };
 		CE383F9D2184739E0077409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE383FA22184739E0077409B /* PerspectiveViewExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveViewExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE383FA22184739E0077409B /* PerspectiveExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE383FA62184739E0077409B /* PerspectiveViewExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveViewExampleUITests.swift; sourceTree = "<group>"; };
 		CE383FA82184739E0077409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE383FB7218474AB0077409B /* PerspectiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveView.swift; sourceTree = "<group>"; };
@@ -59,8 +59,8 @@
 		CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveParallaxCoordinator.swift; sourceTree = "<group>"; };
 		CE383FBF2184AB440077409B /* PerspectiveMotionBehabior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveMotionBehabior.swift; sourceTree = "<group>"; };
 		CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveScrollBehavior.swift; sourceTree = "<group>"; };
-		CE383FC32184AE690077409B /* PerspectiveViewBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveViewBehavior.swift; sourceTree = "<group>"; };
-		CE383FC52184F7D80077409B /* PerspectiveSubviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveSubviewContainer.swift; sourceTree = "<group>"; };
+		CE383FC32184AE690077409B /* PerspectiveBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveBehavior.swift; sourceTree = "<group>"; };
+		CE383FC721861B760077409B /* PerspectiveSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +102,9 @@
 		CE383F842184739C0077409B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE383F832184739C0077409B /* PerspectiveViewExample.app */,
-				CE383F972184739E0077409B /* PerspectiveViewExampleTests.xctest */,
-				CE383FA22184739E0077409B /* PerspectiveViewExampleUITests.xctest */,
+				CE383F832184739C0077409B /* PerspectiveExample.app */,
+				CE383F972184739E0077409B /* PerspectiveExampleTests.xctest */,
+				CE383FA22184739E0077409B /* PerspectiveExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,13 +143,13 @@
 		CE383FB6218474AB0077409B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CE383FB7218474AB0077409B /* PerspectiveView.swift */,
+				CE383FC32184AE690077409B /* PerspectiveBehavior.swift */,
+				CE383FBF2184AB440077409B /* PerspectiveMotionBehabior.swift */,
 				CE383FBB21849F390077409B /* PerspectiveMovementCoordinator.swift */,
 				CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */,
-				CE383FC32184AE690077409B /* PerspectiveViewBehavior.swift */,
-				CE383FBF2184AB440077409B /* PerspectiveMotionBehabior.swift */,
 				CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */,
-				CE383FC52184F7D80077409B /* PerspectiveSubviewContainer.swift */,
+				CE383FC721861B760077409B /* PerspectiveSheet.swift */,
+				CE383FB7218474AB0077409B /* PerspectiveView.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -158,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE383F822184739C0077409B /* PerspectiveViewExample */ = {
+		CE383F822184739C0077409B /* PerspectiveExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE383FAB2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveViewExample" */;
+			buildConfigurationList = CE383FAB2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveExample" */;
 			buildPhases = (
 				CE383F7F2184739C0077409B /* Sources */,
 				CE383F802184739C0077409B /* Frameworks */,
@@ -170,14 +170,14 @@
 			);
 			dependencies = (
 			);
-			name = PerspectiveViewExample;
+			name = PerspectiveExample;
 			productName = PerspectiveViewExample;
-			productReference = CE383F832184739C0077409B /* PerspectiveViewExample.app */;
+			productReference = CE383F832184739C0077409B /* PerspectiveExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CE383F962184739E0077409B /* PerspectiveViewExampleTests */ = {
+		CE383F962184739E0077409B /* PerspectiveExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE383FAE2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveViewExampleTests" */;
+			buildConfigurationList = CE383FAE2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveExampleTests" */;
 			buildPhases = (
 				CE383F932184739E0077409B /* Sources */,
 				CE383F942184739E0077409B /* Frameworks */,
@@ -188,14 +188,14 @@
 			dependencies = (
 				CE383F992184739E0077409B /* PBXTargetDependency */,
 			);
-			name = PerspectiveViewExampleTests;
+			name = PerspectiveExampleTests;
 			productName = PerspectiveViewExampleTests;
-			productReference = CE383F972184739E0077409B /* PerspectiveViewExampleTests.xctest */;
+			productReference = CE383F972184739E0077409B /* PerspectiveExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CE383FA12184739E0077409B /* PerspectiveViewExampleUITests */ = {
+		CE383FA12184739E0077409B /* PerspectiveExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE383FB12184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveViewExampleUITests" */;
+			buildConfigurationList = CE383FB12184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveExampleUITests" */;
 			buildPhases = (
 				CE383F9E2184739E0077409B /* Sources */,
 				CE383F9F2184739E0077409B /* Frameworks */,
@@ -206,9 +206,9 @@
 			dependencies = (
 				CE383FA42184739E0077409B /* PBXTargetDependency */,
 			);
-			name = PerspectiveViewExampleUITests;
+			name = PerspectiveExampleUITests;
 			productName = PerspectiveViewExampleUITests;
-			productReference = CE383FA22184739E0077409B /* PerspectiveViewExampleUITests.xctest */;
+			productReference = CE383FA22184739E0077409B /* PerspectiveExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -234,7 +234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE383F7E2184739C0077409B /* Build configuration list for PBXProject "PerspectiveViewExample" */;
+			buildConfigurationList = CE383F7E2184739C0077409B /* Build configuration list for PBXProject "PerspectiveExample" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -247,9 +247,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE383F822184739C0077409B /* PerspectiveViewExample */,
-				CE383F962184739E0077409B /* PerspectiveViewExampleTests */,
-				CE383FA12184739E0077409B /* PerspectiveViewExampleUITests */,
+				CE383F822184739C0077409B /* PerspectiveExample */,
+				CE383F962184739E0077409B /* PerspectiveExampleTests */,
+				CE383FA12184739E0077409B /* PerspectiveExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -288,12 +288,12 @@
 			files = (
 				CE383FBC21849F390077409B /* PerspectiveMovementCoordinator.swift in Sources */,
 				CE383F892184739C0077409B /* ViewController.swift in Sources */,
+				CE383FC821861B760077409B /* PerspectiveSheet.swift in Sources */,
 				CE383FC02184AB440077409B /* PerspectiveMotionBehabior.swift in Sources */,
 				CE383FC22184ACE90077409B /* PerspectiveScrollBehavior.swift in Sources */,
 				CE383F872184739C0077409B /* AppDelegate.swift in Sources */,
 				CE383FB8218474AB0077409B /* PerspectiveView.swift in Sources */,
-				CE383FC62184F7D80077409B /* PerspectiveSubviewContainer.swift in Sources */,
-				CE383FC42184AE690077409B /* PerspectiveViewBehavior.swift in Sources */,
+				CE383FC42184AE690077409B /* PerspectiveBehavior.swift in Sources */,
 				CE383FBE21849FC00077409B /* PerspectiveParallaxCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,12 +319,12 @@
 /* Begin PBXTargetDependency section */
 		CE383F992184739E0077409B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CE383F822184739C0077409B /* PerspectiveViewExample */;
+			target = CE383F822184739C0077409B /* PerspectiveExample */;
 			targetProxy = CE383F982184739E0077409B /* PBXContainerItemProxy */;
 		};
 		CE383FA42184739E0077409B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CE383F822184739C0077409B /* PerspectiveViewExample */;
+			target = CE383F822184739C0077409B /* PerspectiveExample */;
 			targetProxy = CE383FA32184739E0077409B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -517,7 +517,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerspectiveViewExample.app/PerspectiveViewExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerspectiveExample.app/PerspectiveExample";
 			};
 			name = Debug;
 		};
@@ -537,7 +537,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerspectiveViewExample.app/PerspectiveViewExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerspectiveExample.app/PerspectiveExample";
 			};
 			name = Release;
 		};
@@ -582,7 +582,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE383F7E2184739C0077409B /* Build configuration list for PBXProject "PerspectiveViewExample" */ = {
+		CE383F7E2184739C0077409B /* Build configuration list for PBXProject "PerspectiveExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE383FA92184739E0077409B /* Debug */,
@@ -591,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE383FAB2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveViewExample" */ = {
+		CE383FAB2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE383FAC2184739E0077409B /* Debug */,
@@ -600,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE383FAE2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveViewExampleTests" */ = {
+		CE383FAE2184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE383FAF2184739E0077409B /* Debug */,
@@ -609,7 +609,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE383FB12184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveViewExampleUITests" */ = {
+		CE383FB12184739E0077409B /* Build configuration list for PBXNativeTarget "PerspectiveExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE383FB22184739E0077409B /* Debug */,
