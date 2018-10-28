@@ -39,7 +39,7 @@ final public class PerspectiveView: UIView {
   /**
    The gesture-recognizer objects currently attached to the view.
    */
-  public private(set) var behaviors: [PerspectiveBehavior] = []
+  public private(set) var behaviors: [PerspectiveConcreteBehavior] = []
 
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -56,6 +56,7 @@ final public class PerspectiveView: UIView {
   private func setupSubviews() {
     addSubview(parallaxView)
 
+    parallaxView.clipsToBounds = true
     parallaxView.translatesAutoresizingMaskIntoConstraints = false
 
     for v in [parallaxView] {
@@ -69,13 +70,13 @@ final public class PerspectiveView: UIView {
   /**
    Adds a view to the end of the stackedSubviews array.
    */
-  public func addStackedSubview(_ view: UIView) {
-    let layer = PerspectiveSheet(view: view, distance: nil, offset: .zero)
+  public func addSubviewAsSheet(_ view: UIView) {
+    let layer = PerspectiveSheet(view: view)
 
-    addLayer(layer)
+    addSheet(layer)
   }
 
-  public func addLayer(_ layer: PerspectiveSheet) {
+  public func addSheet(_ layer: PerspectiveSheet) {
     sheets.append(layer)
 
     layer.view.frame = CGRect(origin: layer.offset, size: layer.view.frame.size)
@@ -86,10 +87,18 @@ final public class PerspectiveView: UIView {
   /**
    Attaches a gesture recognizer to the view.
  */
-  public func addBehavior(_ behavior: PerspectiveBehavior) {
+  public func addBehavior(_ behavior: PerspectiveConcreteBehavior) {
     behaviors.append(behavior)
 
+    behavior.delegate = self
+
     behavior.setup(with: self)
+  }
+
+  public func removeBehavior(_ behavior: PerspectiveConcreteBehavior) {
+    behavior.delegate = nil
+
+    behaviors = behaviors.filter { $0 != behavior }
   }
 }
 

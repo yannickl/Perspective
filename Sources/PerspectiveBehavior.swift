@@ -35,5 +35,13 @@ public protocol PerspectiveBehavior {
 
   var offset: CGPoint { get }
 
-  func setup(with view: UIView & PerspectiveBehaviorDelegate)
+  func setup(with view: UIView)
+}
+
+public class PerspectiveConcreteBehavior: NSObject, PerspectiveBehavior {
+  public weak var delegate: PerspectiveBehaviorDelegate?
+
+  public internal(set) var offset: CGPoint = .zero
+
+  public func setup(with view: UIView) {}
 }

@@ -28,7 +28,7 @@ import CoreMotion
 import Foundation
 import UIKit
 
-public final class PerspectiveMotionBehabior: PerspectiveBehavior {
+public final class PerspectiveMotionBehabior: PerspectiveConcreteBehavior {
   private let lowPassRatio: CGFloat = 0.25
   private let motionManager = CMMotionManager()
   private lazy var backgroundQueue: OperationQueue = {
@@ -38,29 +38,24 @@ public final class PerspectiveMotionBehabior: PerspectiveBehavior {
     return queue
   }()
 
-  public private(set) var offset: CGPoint = .zero
-
-  weak public var delegate: PerspectiveBehaviorDelegate? = nil
-
   deinit {
     if motionManager.isAccelerometerActive {
       motionManager.stopAccelerometerUpdates()
     }
   }
 
-  public func setup(with view: UIView & PerspectiveBehaviorDelegate) {
-    delegate = view
-
+  public override func setup(with view: UIView) {
     if motionManager.isAccelerometerAvailable {
       motionManager.accelerometerUpdateInterval = 1 / 60
+
       motionManager.startAccelerometerUpdates(to: backgroundQueue) { [weak self] data, error in
         guard let weakSelf = self, let data = data else { return }
 
         // Low-pass filter to smooth the measurements
-        let tiltX = weakSelf.offset.x * (1 - weakSelf.lowPassRatio) + CGFloat(data.acceleration.x) * weakSelf.lowPassRatio * 100
-        let tiltY = weakSelf.offset.y * (1 - weakSelf.lowPassRatio) + CGFloat(data.acceleration.y) * weakSelf.lowPassRatio * 100
+        let tiltX = Int(weakSelf.offset.x * (1 - weakSelf.lowPassRatio) + CGFloat(data.acceleration.x) * weakSelf.lowPassRatio * 100)
+        let tiltY = Int(weakSelf.offset.y * (1 - weakSelf.lowPassRatio) + CGFloat(data.acceleration.y) * weakSelf.lowPassRatio * 100)
 
-        if Int(weakSelf.offset.x) != Int(tiltX) || Int(weakSelf.offset.y) != Int(tiltY) {
+        if Int(weakSelf.offset.x) != tiltX || Int(weakSelf.offset.y) != tiltY {
           let tilt = CGPoint(x: tiltX, y: tiltY)
 
           DispatchQueue.main.async {

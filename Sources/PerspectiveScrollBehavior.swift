@@ -27,10 +27,8 @@
 import Foundation
 import UIKit
 
-final public class PerspectiveScrollBehavior: NSObject, PerspectiveBehavior {
+final public class PerspectiveScrollBehavior: PerspectiveConcreteBehavior {
   private let scrollView = UIScrollView()
-
-  weak public var delegate: PerspectiveBehaviorDelegate? = nil
 
   /**
    The size of the content view.
@@ -46,14 +44,15 @@ final public class PerspectiveScrollBehavior: NSObject, PerspectiveBehavior {
     }
   }
 
-  public var offset: CGPoint {
-    return scrollView.contentOffset
+  public override var offset: CGPoint {
+    get {
+      return scrollView.contentOffset
+    }
+    set {}
   }
 
-  public func setup(with view: UIView & PerspectiveBehaviorDelegate) {
+  public override func setup(with view: UIView) {
     view.addSubview(scrollView)
-
-    delegate = view
 
     scrollView.delegate = self
     scrollView.showsVerticalScrollIndicator = false

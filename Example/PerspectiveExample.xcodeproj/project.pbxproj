@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CE383F872184739C0077409B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383F862184739C0077409B /* AppDelegate.swift */; };
-		CE383F892184739C0077409B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383F882184739C0077409B /* ViewController.swift */; };
+		CE383F892184739C0077409B /* ScrollBehaviorSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383F882184739C0077409B /* ScrollBehaviorSampleVC.swift */; };
 		CE383F8C2184739C0077409B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE383F8A2184739C0077409B /* Main.storyboard */; };
 		CE383F8E2184739E0077409B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE383F8D2184739E0077409B /* Assets.xcassets */; };
 		CE383F912184739E0077409B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE383F8F2184739E0077409B /* LaunchScreen.storyboard */; };
-		CE383F9C2184739E0077409B /* PerspectiveViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383F9B2184739E0077409B /* PerspectiveViewExampleTests.swift */; };
-		CE383FA72184739E0077409B /* PerspectiveViewExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FA62184739E0077409B /* PerspectiveViewExampleUITests.swift */; };
+		CE383F9C2184739E0077409B /* PerspectiveExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383F9B2184739E0077409B /* PerspectiveExampleTests.swift */; };
+		CE383FA72184739E0077409B /* PerspectiveExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FA62184739E0077409B /* PerspectiveExampleUITests.swift */; };
 		CE383FB8218474AB0077409B /* PerspectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FB7218474AB0077409B /* PerspectiveView.swift */; };
 		CE383FBC21849F390077409B /* PerspectiveMovementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FBB21849F390077409B /* PerspectiveMovementCoordinator.swift */; };
 		CE383FBE21849FC00077409B /* PerspectiveParallaxCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */; };
@@ -21,6 +21,9 @@
 		CE383FC22184ACE90077409B /* PerspectiveScrollBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */; };
 		CE383FC42184AE690077409B /* PerspectiveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC32184AE690077409B /* PerspectiveBehavior.swift */; };
 		CE383FC821861B760077409B /* PerspectiveSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC721861B760077409B /* PerspectiveSheet.swift */; };
+		CE383FCA218624080077409B /* PerspectiveSheetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */; };
+		CE383FCC218627CF0077409B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCB218627CF0077409B /* RootViewController.swift */; };
+		CE383FCE21863E900077409B /* MotionBehaviorSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,30 +32,30 @@
 			containerPortal = CE383F7B2184739C0077409B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CE383F822184739C0077409B;
-			remoteInfo = PerspectiveViewExample;
+			remoteInfo = PerspectiveExample;
 		};
 		CE383FA32184739E0077409B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE383F7B2184739C0077409B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CE383F822184739C0077409B;
-			remoteInfo = PerspectiveViewExample;
+			remoteInfo = PerspectiveExample;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CE383F832184739C0077409B /* PerspectiveExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerspectiveExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE383F862184739C0077409B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CE383F882184739C0077409B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE383F882184739C0077409B /* ScrollBehaviorSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBehaviorSampleVC.swift; sourceTree = "<group>"; };
 		CE383F8B2184739C0077409B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE383F8D2184739E0077409B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE383F902184739E0077409B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE383F922184739E0077409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE383F972184739E0077409B /* PerspectiveExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE383F9B2184739E0077409B /* PerspectiveViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveViewExampleTests.swift; sourceTree = "<group>"; };
+		CE383F9B2184739E0077409B /* PerspectiveExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveExampleTests.swift; sourceTree = "<group>"; };
 		CE383F9D2184739E0077409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE383FA22184739E0077409B /* PerspectiveExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE383FA62184739E0077409B /* PerspectiveViewExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveViewExampleUITests.swift; sourceTree = "<group>"; };
+		CE383FA62184739E0077409B /* PerspectiveExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveExampleUITests.swift; sourceTree = "<group>"; };
 		CE383FA82184739E0077409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE383FB7218474AB0077409B /* PerspectiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveView.swift; sourceTree = "<group>"; };
 		CE383FBB21849F390077409B /* PerspectiveMovementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveMovementCoordinator.swift; sourceTree = "<group>"; };
@@ -61,6 +64,9 @@
 		CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveScrollBehavior.swift; sourceTree = "<group>"; };
 		CE383FC32184AE690077409B /* PerspectiveBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveBehavior.swift; sourceTree = "<group>"; };
 		CE383FC721861B760077409B /* PerspectiveSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveSheet.swift; sourceTree = "<group>"; };
+		CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveSheetBuilder.swift; sourceTree = "<group>"; };
+		CE383FCB218627CF0077409B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBehaviorSampleVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				CE383FB6218474AB0077409B /* Sources */,
-				CE383F852184739C0077409B /* PerspectiveViewExample */,
-				CE383F9A2184739E0077409B /* PerspectiveViewExampleTests */,
-				CE383FA52184739E0077409B /* PerspectiveViewExampleUITests */,
+				CE383F852184739C0077409B /* PerspectiveExample */,
+				CE383F9A2184739E0077409B /* PerspectiveExampleTests */,
+				CE383FA52184739E0077409B /* PerspectiveExampleUITests */,
 				CE383F842184739C0077409B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,35 +115,36 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE383F852184739C0077409B /* PerspectiveViewExample */ = {
+		CE383F852184739C0077409B /* PerspectiveExample */ = {
 			isa = PBXGroup;
 			children = (
+				CE383FD021863E9F0077409B /* Samples */,
 				CE383F862184739C0077409B /* AppDelegate.swift */,
-				CE383F882184739C0077409B /* ViewController.swift */,
+				CE383FCB218627CF0077409B /* RootViewController.swift */,
 				CE383F8A2184739C0077409B /* Main.storyboard */,
 				CE383F8D2184739E0077409B /* Assets.xcassets */,
 				CE383F8F2184739E0077409B /* LaunchScreen.storyboard */,
 				CE383F922184739E0077409B /* Info.plist */,
 			);
-			path = PerspectiveViewExample;
+			path = PerspectiveExample;
 			sourceTree = "<group>";
 		};
-		CE383F9A2184739E0077409B /* PerspectiveViewExampleTests */ = {
+		CE383F9A2184739E0077409B /* PerspectiveExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				CE383F9B2184739E0077409B /* PerspectiveViewExampleTests.swift */,
+				CE383F9B2184739E0077409B /* PerspectiveExampleTests.swift */,
 				CE383F9D2184739E0077409B /* Info.plist */,
 			);
-			path = PerspectiveViewExampleTests;
+			path = PerspectiveExampleTests;
 			sourceTree = "<group>";
 		};
-		CE383FA52184739E0077409B /* PerspectiveViewExampleUITests */ = {
+		CE383FA52184739E0077409B /* PerspectiveExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				CE383FA62184739E0077409B /* PerspectiveViewExampleUITests.swift */,
+				CE383FA62184739E0077409B /* PerspectiveExampleUITests.swift */,
 				CE383FA82184739E0077409B /* Info.plist */,
 			);
-			path = PerspectiveViewExampleUITests;
+			path = PerspectiveExampleUITests;
 			sourceTree = "<group>";
 		};
 		CE383FB6218474AB0077409B /* Sources */ = {
@@ -149,10 +156,20 @@
 				CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */,
 				CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */,
 				CE383FC721861B760077409B /* PerspectiveSheet.swift */,
+				CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */,
 				CE383FB7218474AB0077409B /* PerspectiveView.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
+			sourceTree = "<group>";
+		};
+		CE383FD021863E9F0077409B /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				CE383F882184739C0077409B /* ScrollBehaviorSampleVC.swift */,
+				CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */,
+			);
+			path = Samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +188,7 @@
 			dependencies = (
 			);
 			name = PerspectiveExample;
-			productName = PerspectiveViewExample;
+			productName = PerspectiveExample;
 			productReference = CE383F832184739C0077409B /* PerspectiveExample.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -189,7 +206,7 @@
 				CE383F992184739E0077409B /* PBXTargetDependency */,
 			);
 			name = PerspectiveExampleTests;
-			productName = PerspectiveViewExampleTests;
+			productName = PerspectiveExampleTests;
 			productReference = CE383F972184739E0077409B /* PerspectiveExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -207,7 +224,7 @@
 				CE383FA42184739E0077409B /* PBXTargetDependency */,
 			);
 			name = PerspectiveExampleUITests;
-			productName = PerspectiveViewExampleUITests;
+			productName = PerspectiveExampleUITests;
 			productReference = CE383FA22184739E0077409B /* PerspectiveExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -286,14 +303,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE383FCE21863E900077409B /* MotionBehaviorSampleVC.swift in Sources */,
 				CE383FBC21849F390077409B /* PerspectiveMovementCoordinator.swift in Sources */,
-				CE383F892184739C0077409B /* ViewController.swift in Sources */,
+				CE383F892184739C0077409B /* ScrollBehaviorSampleVC.swift in Sources */,
 				CE383FC821861B760077409B /* PerspectiveSheet.swift in Sources */,
+				CE383FCC218627CF0077409B /* RootViewController.swift in Sources */,
 				CE383FC02184AB440077409B /* PerspectiveMotionBehabior.swift in Sources */,
 				CE383FC22184ACE90077409B /* PerspectiveScrollBehavior.swift in Sources */,
 				CE383F872184739C0077409B /* AppDelegate.swift in Sources */,
 				CE383FB8218474AB0077409B /* PerspectiveView.swift in Sources */,
 				CE383FC42184AE690077409B /* PerspectiveBehavior.swift in Sources */,
+				CE383FCA218624080077409B /* PerspectiveSheetBuilder.swift in Sources */,
 				CE383FBE21849FC00077409B /* PerspectiveParallaxCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,7 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE383F9C2184739E0077409B /* PerspectiveViewExampleTests.swift in Sources */,
+				CE383F9C2184739E0077409B /* PerspectiveExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE383FA72184739E0077409B /* PerspectiveViewExampleUITests.swift in Sources */,
+				CE383FA72184739E0077409B /* PerspectiveExampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,12 +491,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8Y92BXSXC;
-				INFOPLIST_FILE = PerspectiveViewExample/Info.plist;
+				INFOPLIST_FILE = PerspectiveExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveViewExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -489,12 +509,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N8Y92BXSXC;
-				INFOPLIST_FILE = PerspectiveViewExample/Info.plist;
+				INFOPLIST_FILE = PerspectiveExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveViewExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -507,13 +527,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PerspectiveViewExampleTests/Info.plist;
+				INFOPLIST_FILE = PerspectiveExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveViewExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -527,13 +547,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PerspectiveViewExampleTests/Info.plist;
+				INFOPLIST_FILE = PerspectiveExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveViewExampleTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -546,17 +566,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PerspectiveViewExampleUITests/Info.plist;
+				INFOPLIST_FILE = PerspectiveExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveViewExampleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PerspectiveViewExample;
+				TEST_TARGET_NAME = PerspectiveExample;
 			};
 			name = Debug;
 		};
@@ -565,17 +585,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = PerspectiveViewExampleUITests/Info.plist;
+				INFOPLIST_FILE = PerspectiveExampleUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveViewExampleUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PerspectiveExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PerspectiveViewExample;
+				TEST_TARGET_NAME = PerspectiveExample;
 			};
 			name = Release;
 		};
