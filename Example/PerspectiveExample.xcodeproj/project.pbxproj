@@ -24,6 +24,7 @@
 		CE383FCA218624080077409B /* PerspectiveSheetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */; };
 		CE383FCC218627CF0077409B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCB218627CF0077409B /* RootViewController.swift */; };
 		CE383FCE21863E900077409B /* MotionBehaviorSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */; };
+		CEDA7DEE218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveSheetBuilder.swift; sourceTree = "<group>"; };
 		CE383FCB218627CF0077409B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBehaviorSampleVC.swift; sourceTree = "<group>"; };
+		CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll+MotionBehaviorSampleVC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				CE383F882184739C0077409B /* ScrollBehaviorSampleVC.swift */,
 				CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */,
+				CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				CE383FB8218474AB0077409B /* PerspectiveView.swift in Sources */,
 				CE383FC42184AE690077409B /* PerspectiveBehavior.swift in Sources */,
 				CE383FCA218624080077409B /* PerspectiveSheetBuilder.swift in Sources */,
+				CEDA7DEE218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift in Sources */,
 				CE383FBE21849FC00077409B /* PerspectiveParallaxCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOS-J1-70a">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOS-J1-70a">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,6 +52,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="Scroll" id="Db1-tz-HwY"/>
                         <segue destination="EYZ-3P-SHv" kind="show" identifier="Motion" id="juO-ux-lWW"/>
+                        <segue destination="DP0-yI-qxX" kind="show" identifier="Scroll+Motion" id="d9G-aW-NPt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zu9-Du-h6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -102,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="-259"/>
+            <point key="canvasLocation" x="860" y="-761"/>
         </scene>
         <!--Motion Behavior SampleVC-->
         <scene sceneID="Tly-sa-fQg">
@@ -132,7 +133,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6H-3R-fYs" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="432"/>
+            <point key="canvasLocation" x="860" y="-70"/>
+        </scene>
+        <!--Scroll Motion Behavior SampleVC-->
+        <scene sceneID="l4m-09-Kr4">
+            <objects>
+                <viewController id="DP0-yI-qxX" customClass="ScrollMotionBehaviorSampleVC" customModule="PerspectiveExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jwJ-zp-zCc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dna-ed-02p" customClass="PerspectiveView" customModule="PerspectiveExample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dna-ed-02p" firstAttribute="leading" secondItem="jwJ-zp-zCc" secondAttribute="leading" id="Qn2-O2-QQP"/>
+                            <constraint firstItem="dna-ed-02p" firstAttribute="top" secondItem="jwJ-zp-zCc" secondAttribute="top" id="W6M-td-Tw9"/>
+                            <constraint firstAttribute="trailing" secondItem="dna-ed-02p" secondAttribute="trailing" id="XOw-ZC-Nv7"/>
+                            <constraint firstAttribute="bottom" secondItem="dna-ed-02p" secondAttribute="bottom" id="rab-tI-vQe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rYy-kO-O5a"/>
+                    </view>
+                    <connections>
+                        <outlet property="perspectiveView" destination="dna-ed-02p" id="WXN-R3-CsT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ak-eY-UiC" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="644"/>
         </scene>
     </scenes>
 </document>

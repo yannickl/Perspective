@@ -26,15 +26,32 @@
 
 import UIKit
 
-public class PerspectiveSheetBuilder {
-  public typealias Block = (PerspectiveSheetBuilder) -> Void
+class ScrollMotionBehaviorSampleVC: UIViewController {
+  @IBOutlet weak var perspectiveView: PerspectiveView!
 
-  public var distance: CGFloat? = nil
-  var offset: CGPoint = .zero
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-  public init() {}
+    self.title = "Scroll & Motion behavior sample"
 
-  public init(buildBlock: Block) {
-    buildBlock(self)
+    let contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
+
+    for i in stride(from: 9, to: 0, by: -1) {
+      let imgView = UIImageView(image: UIImage(named: "snow-layer0\(i)"))
+      imgView.frame = CGRect(origin: .zero, size: CGSize(width: 1600, height: 900))
+
+      let sheet = PerspectiveSheet(view: imgView) { _ in
+        //$0.offset = CGPoint(x: -300 - 40 * i, y: 0)
+      }
+      perspectiveView.addSheet(sheet)
+    }
+
+    let scrollBehavior = PerspectiveScrollBehavior()
+    scrollBehavior.contentSize = contentSize
+    perspectiveView.addBehavior(scrollBehavior)
+
+    let motionBehavior = PerspectiveMotionBehabior()
+    perspectiveView.addBehavior(motionBehavior)
   }
 }
+

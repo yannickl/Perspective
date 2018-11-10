@@ -41,6 +41,9 @@ final public class PerspectiveView: UIView {
    */
   public private(set) var behaviors: [PerspectiveConcreteBehavior] = []
 
+  var offset: CGPoint = .zero
+  var contentSize: CGSize = .zero
+
   public override init(frame: CGRect) {
     super.init(frame: frame)
 
@@ -70,7 +73,7 @@ final public class PerspectiveView: UIView {
   /**
    Adds a view to the end of the stackedSubviews array.
    */
-  public func addSubviewAsSheet(_ view: UIView) {
+  public func addArrangedSubview(_ view: UIView) {
     let layer = PerspectiveSheet(view: view)
 
     addSheet(layer)
@@ -104,10 +107,13 @@ final public class PerspectiveView: UIView {
 
 extension PerspectiveView: PerspectiveBehaviorDelegate {
   public func behavior(_ behavior: PerspectiveBehavior, didUpdate offset: CGPoint) {
-    let offset: CGPoint = behaviors.reduce(.zero) { acc, behavior in
+    let reducedOffset: CGPoint = behaviors.reduce(.zero) { acc, behavior in
       return CGPoint(x: acc.x + behavior.offset.x, y: acc.y + behavior.offset.y)
     }
 
-    movementCoordinator.updatePosition(of: sheets, offset: offset)
+    movementCoordinator.updatePosition(of: sheets, offset: CGPoint(
+      x: self.offset.x + reducedOffset.x,
+      y: self.offset.y + reducedOffset.y
+    ))
   }
 }

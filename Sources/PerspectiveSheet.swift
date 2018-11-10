@@ -28,12 +28,16 @@ import Foundation
 import UIKit
 
 public struct PerspectiveSheet {
-  let view: UIView
-  let distance: CGFloat?
+  public let view: UIView
+  public let distance: CGFloat?
   let offset: CGPoint
 
-  public init(view: UIView, builder: PerspectiveSheetBuilder = PerspectiveSheetBuilder()) {
+  public init(view: UIView, builder block: PerspectiveSheetBuilder.Block = { _ in }) {
     self.view = view
+
+    let builder = PerspectiveSheetBuilder()
+
+    block(builder)
 
     self.distance = builder.distance
     self.offset = builder.offset
