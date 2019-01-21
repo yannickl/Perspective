@@ -26,19 +26,33 @@
 
 import UIKit
 
-class ScrollMotionBehaviorSampleVC: UIViewController {
+class ScrollMotionBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.title = "Scroll & Motion behavior sample"
+    self.title = "Scroll & Motion"
+    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
+    setupPerspective()
+  }
+
+  @IBAction func tapAction(_ gesture: UITapGestureRecognizer) {
+    let isNavigationBarHidden = self.navigationController?.isNavigationBarHidden ?? false
+
+    self.navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
+  }
+
+  func setupPerspective() {
     let contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
+
+    perspectiveView.contentSize = contentSize
+    perspectiveView.curve = .easeInOutCubic
 
     for i in stride(from: 9, to: 0, by: -1) {
       let imgView = UIImageView(image: UIImage(named: "snow-layer0\(i)"))
-      imgView.frame = CGRect(origin: .zero, size: CGSize(width: 1600, height: 900))
+      imgView.frame = CGRect(origin: .zero, size: contentSize)
 
       let sheet = PerspectiveSheet(view: imgView) { _ in
         //$0.offset = CGPoint(x: -300 - 40 * i, y: 0)
@@ -46,12 +60,11 @@ class ScrollMotionBehaviorSampleVC: UIViewController {
       perspectiveView.addSheet(sheet)
     }
 
-    let scrollBehavior = PerspectiveScrollBehavior()
-    scrollBehavior.contentSize = contentSize
-    perspectiveView.addBehavior(scrollBehavior)
+    let scrollBehaviour = PerspectiveScrollBehaviour()
+    perspectiveView.addBehaviour(scrollBehaviour)
 
-    let motionBehavior = PerspectiveMotionBehabior()
-    perspectiveView.addBehavior(motionBehavior)
+    let motionBehaviour = PerspectiveMotionBehabior()
+    perspectiveView.addBehaviour(motionBehaviour)
   }
 }
 

@@ -26,30 +26,36 @@
 
 import UIKit
 
-class ScrollBehaviorSampleVC: UIViewController {
+class ScrollBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.title = "Scroll behavior sample"
-    
-    let contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
+    self.title = "Scroll"
+    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+
+    setupPerspective()
+  }
+
+  @IBAction func tapAction(_ gesture: UITapGestureRecognizer) {
+    let isNavigationBarHidden = self.navigationController?.isNavigationBarHidden ?? false
+
+    self.navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
+  }
+
+  func setupPerspective() {
+    let contentSize = CGSize(width: 1599, height: 900) // CGSize(width: 1443, height: 812)
+    perspectiveView.contentSize = contentSize
 
     for i in stride(from: 7, to: 0, by: -1) {
       let imgView = UIImageView(image: UIImage(named: "castle-layer0\(i)"))
-      imgView.frame = CGRect(origin: .zero, size: CGSize(width: 1600, height: 900))
+      imgView.frame.size = contentSize
 
-      let sheet = PerspectiveSheet(view: imgView, builder: { _ in
-        //$0.offset = CGPoint(x: -300 - 40 * i, y: 0)
-      })
-
-      perspectiveView.addSheet(sheet)
+      perspectiveView.addArrangedSubview(imgView)
     }
 
-    let scrollBehavior = PerspectiveScrollBehavior()
-    scrollBehavior.contentSize = contentSize
-    perspectiveView.addBehavior(scrollBehavior)
+    perspectiveView.addBehaviour(PerspectiveScrollBehaviour())
   }
 }
 

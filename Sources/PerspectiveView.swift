@@ -27,33 +27,60 @@
 import UIKit
 
 final public class PerspectiveView: UIView {
+  public var contentSize: CGSize = .zero {
+    didSet { updateDimensions() }
+  }
+
+  public var contentOffset: CGPoint {
+    get {
+      return CGPoint(x: distance.width * offsetRatio.x, y: distance.height * offsetRatio.y)
+    }
+  }
+
+  /**
+    The behaviours objects currently attached to the perspective.
+  */
+  public private(set) var behaviours: [PerspectiveBehaviour] = []
+  public var curve: PerspectiveCurve = .linear
+
+  /// The view used to add the parallax sheets
   private let parallaxView = UIView()
 
-  public var movementCoordinator: PerspectiveMovementCoordinator = PerspectiveParallaxCoordinator()
-
-  /**
-   The list of sheets used to create the parallax effect.
-   */
+  /// The list of sheets used to create the parallax effect.
   private var sheets: [PerspectiveSheet] = []
 
-  /**
-   The gesture-recognizer objects currently attached to the view.
-   */
-  public private(set) var behaviors: [PerspectiveConcreteBehavior] = []
-
-  var offset: CGPoint = .zero
-  var contentSize: CGSize = .zero
+  private var distance: CGSize = CGSize(width: 1, height: 1)
+  private var offsetRatio: CGPoint = .zero {
+    didSet { layoutArrangedSubview(offsetRatio: offsetRatio) }
+  }
 
   public override init(frame: CGRect) {
     super.init(frame: frame)
 
     setupSubviews()
+    updateDimensions()
   }
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
 
     setupSubviews()
+    updateDimensions()
+  }
+
+  public override func layoutSubviews() {
+    super.layoutSubviews()
+
+    updateDimensions()
+  }
+
+  private func updateDimensions() {
+    behaviours.forEach { $0.dimensionsDidUpdate(bounds: bounds, contentSize: contentSize) }
+
+    distance = CGSize(
+      width: max(contentSize.width - bounds.width, 1),
+      height: max(contentSize.height - bounds.height, 1)
+    )
   }
 
   private func setupSubviews() {
@@ -83,37 +110,57 @@ final public class PerspectiveView: UIView {
     sheets.append(layer)
 
     layer.view.frame = CGRect(origin: layer.offset, size: layer.view.frame.size)
-    
+
     parallaxView.addSubview(layer.view)
   }
 
   /**
-   Attaches a gesture recognizer to the view.
+   Attaches a behaviour to the perspective view.
  */
-  public func addBehavior(_ behavior: PerspectiveConcreteBehavior) {
-    behaviors.append(behavior)
+  public func addBehaviour(_ behaviour: PerspectiveBehaviour) {
+    assert(
+      behaviours.first(where: { $0.identifier == behaviour.identifier }) == nil,
+      "A behavior with identifier \(behaviour.identifier) is already in use"
+    )
 
-    behavior.delegate = self
+    behaviours.append(behaviour)
 
-    behavior.setup(with: self)
+    behaviour.link(to: self, delegate: self)
+    behaviour.dimensionsDidUpdate(bounds: bounds, contentSize: contentSize)
   }
 
-  public func removeBehavior(_ behavior: PerspectiveConcreteBehavior) {
-    behavior.delegate = nil
+  public func removeBehaviour(_ behaviour: PerspectiveBehaviour) {
+    behaviour.unlink()
 
-    behaviors = behaviors.filter { $0 != behavior }
+    behaviours = behaviours.filter { $0.identifier != behaviour.identifier }
+  }
+
+  func layoutArrangedSubview(offsetRatio: CGPoint) {
+    let distributedDistanceRatio = 1 / CGFloat(sheets.count - 1)
+
+    for (i, sheet) in sheets.enumerated() {
+      let xValue = self.curve.value(at: offsetRatio.x, depth: CGFloat(i) * distributedDistanceRatio)
+      let yValue = self.curve.value(at: offsetRatio.y, depth: CGFloat(i) * distributedDistanceRatio)
+
+      var vf = sheet.view.frame
+
+      vf.origin.x = sheet.offset.x + distance.width * xValue * -1
+      vf.origin.y = sheet.offset.y + distance.height * yValue * -1
+
+      sheet.view.frame = vf
+    }
   }
 }
 
-extension PerspectiveView: PerspectiveBehaviorDelegate {
-  public func behavior(_ behavior: PerspectiveBehavior, didUpdate offset: CGPoint) {
-    let reducedOffset: CGPoint = behaviors.reduce(.zero) { acc, behavior in
-      return CGPoint(x: acc.x + behavior.offset.x, y: acc.y + behavior.offset.y)
+extension PerspectiveView: PerspectiveBehaviourDelegate {
+  public func behaviour(_ behaviour: PerspectiveBehaviour, didUpdate offset: CGPoint) {
+    let reducedOffset: CGPoint = behaviours.reduce(.zero) { acc, behaviour in
+      return CGPoint(x: acc.x + behaviour.offset.x, y: acc.y + behaviour.offset.y)
     }
 
-    movementCoordinator.updatePosition(of: sheets, offset: CGPoint(
-      x: self.offset.x + reducedOffset.x,
-      y: self.offset.y + reducedOffset.y
-    ))
+    offsetRatio = CGPoint(
+      x: reducedOffset.x / distance.width,
+      y: reducedOffset.y / distance.height
+    )
   }
 }

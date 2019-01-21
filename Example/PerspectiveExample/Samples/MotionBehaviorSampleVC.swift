@@ -26,15 +26,26 @@
 
 import UIKit
 
-class MotionBehaviorSampleVC: UIViewController {
+class MotionBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.title = "Motion behavior sample"
+    self.title = "Motion"
+    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
-    let contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
+    setupPerspective()
+  }
+
+  @IBAction func tapAction(_ gesture: UITapGestureRecognizer) {
+    let isNavigationBarHidden = self.navigationController?.isNavigationBarHidden ?? false
+
+    self.navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
+  }
+
+  func setupPerspective() {
+    perspectiveView.contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
 
     for i in stride(from: 6, to: 0, by: -1) {
       let imgView = UIImageView(image: UIImage(named: "candy-layer0\(i)"))
@@ -43,9 +54,9 @@ class MotionBehaviorSampleVC: UIViewController {
       let sheet = PerspectiveSheet(view: imgView)
       perspectiveView.addSheet(sheet)
     }
-    
-    let motionBehavior = PerspectiveMotionBehabior()
-    perspectiveView.addBehavior(motionBehavior)
+
+    let motionBehaviour = PerspectiveMotionBehabior()
+    perspectiveView.addBehaviour(motionBehaviour)
   }
 }
 

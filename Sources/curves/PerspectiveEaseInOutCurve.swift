@@ -24,22 +24,21 @@
  *
  */
 
-import Foundation
 import UIKit
 
-public struct PerspectiveSheet {
-  public let view: UIView
-  public let depth: CGFloat?
-  let offset: CGPoint
+extension PerspectiveCurve {
+  public static let easeInOutQuad: PerspectiveCurve = .easeInOut(2)
+  public static let easeInOutCubic: PerspectiveCurve = .easeInOut(3)
+  public static let easeInOutQuart: PerspectiveCurve = .easeInOut(4)
 
-  public init(view: UIView, builder block: PerspectiveSheetBuilder.Block = { _ in }) {
-    self.view = view
+  public static let easeInOut = { (slope: CGFloat) in
+    return PerspectiveCurve { (time, depth) -> CGFloat in
+      let sigmoid = { (t: CGFloat, alpha: CGFloat) -> CGFloat in
+        1 / (1 + exp(-alpha * t)) - 0.5
+      }
+      let easeInOut = (0.5 / sigmoid(1, slope)) * sigmoid(2 * time - 1, slope) + 0.5
 
-    let builder = PerspectiveSheetBuilder()
-
-    block(builder)
-
-    self.depth = builder.depth
-    self.offset = builder.offset
+      return easeInOut * depth
+    }
   }
 }

@@ -29,8 +29,9 @@ import UIKit
 public class PerspectiveSheetBuilder {
   public typealias Block = (PerspectiveSheetBuilder) -> Void
 
-  public var distance: CGFloat? = nil
-  var offset: CGPoint = .zero
+  public var depth: CGFloat? = nil
+  public var offset: CGPoint = .zero
+  public var size: CGSize? = nil
 
   public init() {}
 

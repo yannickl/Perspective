@@ -26,22 +26,8 @@
 
 import UIKit
 
-public protocol PerspectiveBehaviorDelegate: class {
-  func behavior(_ behavior: PerspectiveBehavior, didUpdate offset: CGPoint)
-}
-
-public protocol PerspectiveBehavior {
-  var delegate: PerspectiveBehaviorDelegate? { get set }
-
-  var offset: CGPoint { get }
-
-  func setup(with view: UIView)
-}
-
-public class PerspectiveConcreteBehavior: NSObject, PerspectiveBehavior {
-  public weak var delegate: PerspectiveBehaviorDelegate?
-
-  public internal(set) var offset: CGPoint = .zero
-
-  public func setup(with view: UIView) {}
+extension PerspectiveCurve {
+  public static let linear = PerspectiveCurve { (time, depth) -> CGFloat in
+    return time * depth
+  }
 }

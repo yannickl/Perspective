@@ -15,16 +15,17 @@
 		CE383F9C2184739E0077409B /* PerspectiveExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383F9B2184739E0077409B /* PerspectiveExampleTests.swift */; };
 		CE383FA72184739E0077409B /* PerspectiveExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FA62184739E0077409B /* PerspectiveExampleUITests.swift */; };
 		CE383FB8218474AB0077409B /* PerspectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FB7218474AB0077409B /* PerspectiveView.swift */; };
-		CE383FBC21849F390077409B /* PerspectiveMovementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FBB21849F390077409B /* PerspectiveMovementCoordinator.swift */; };
-		CE383FBE21849FC00077409B /* PerspectiveParallaxCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */; };
-		CE383FC02184AB440077409B /* PerspectiveMotionBehabior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FBF2184AB440077409B /* PerspectiveMotionBehabior.swift */; };
-		CE383FC22184ACE90077409B /* PerspectiveScrollBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */; };
-		CE383FC42184AE690077409B /* PerspectiveBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC32184AE690077409B /* PerspectiveBehavior.swift */; };
+		CE383FC42184AE690077409B /* PerspectiveBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC32184AE690077409B /* PerspectiveBehaviour.swift */; };
 		CE383FC821861B760077409B /* PerspectiveSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC721861B760077409B /* PerspectiveSheet.swift */; };
 		CE383FCA218624080077409B /* PerspectiveSheetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */; };
 		CE383FCC218627CF0077409B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCB218627CF0077409B /* RootViewController.swift */; };
 		CE383FCE21863E900077409B /* MotionBehaviorSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */; };
+		CE3CE23521F600B10030F9C3 /* PerspectiveEaseInOutCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CE23421F600B10030F9C3 /* PerspectiveEaseInOutCurve.swift */; };
 		CEDA7DEE218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift */; };
+		CEF2F98E21AF130C00649237 /* PerspectiveScrollBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F98C21AF130C00649237 /* PerspectiveScrollBehaviour.swift */; };
+		CEF2F98F21AF130C00649237 /* PerspectiveMotionBehabiour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F98D21AF130C00649237 /* PerspectiveMotionBehabiour.swift */; };
+		CEF2F99121AF179E00649237 /* PerspectiveCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F99021AF179E00649237 /* PerspectiveCurve.swift */; };
+		CEF2F99621AF197F00649237 /* PerspectiveLinearCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F99521AF197F00649237 /* PerspectiveLinearCurve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,16 +60,17 @@
 		CE383FA62184739E0077409B /* PerspectiveExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveExampleUITests.swift; sourceTree = "<group>"; };
 		CE383FA82184739E0077409B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE383FB7218474AB0077409B /* PerspectiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveView.swift; sourceTree = "<group>"; };
-		CE383FBB21849F390077409B /* PerspectiveMovementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveMovementCoordinator.swift; sourceTree = "<group>"; };
-		CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveParallaxCoordinator.swift; sourceTree = "<group>"; };
-		CE383FBF2184AB440077409B /* PerspectiveMotionBehabior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveMotionBehabior.swift; sourceTree = "<group>"; };
-		CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveScrollBehavior.swift; sourceTree = "<group>"; };
-		CE383FC32184AE690077409B /* PerspectiveBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveBehavior.swift; sourceTree = "<group>"; };
+		CE383FC32184AE690077409B /* PerspectiveBehaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveBehaviour.swift; sourceTree = "<group>"; };
 		CE383FC721861B760077409B /* PerspectiveSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveSheet.swift; sourceTree = "<group>"; };
 		CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveSheetBuilder.swift; sourceTree = "<group>"; };
 		CE383FCB218627CF0077409B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		CE383FCD21863E900077409B /* MotionBehaviorSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionBehaviorSampleVC.swift; sourceTree = "<group>"; };
+		CE3CE23421F600B10030F9C3 /* PerspectiveEaseInOutCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveEaseInOutCurve.swift; sourceTree = "<group>"; };
 		CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll+MotionBehaviorSampleVC.swift"; sourceTree = "<group>"; };
+		CEF2F98C21AF130C00649237 /* PerspectiveScrollBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveScrollBehaviour.swift; sourceTree = "<group>"; };
+		CEF2F98D21AF130C00649237 /* PerspectiveMotionBehabiour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveMotionBehabiour.swift; sourceTree = "<group>"; };
+		CEF2F99021AF179E00649237 /* PerspectiveCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveCurve.swift; sourceTree = "<group>"; };
+		CEF2F99521AF197F00649237 /* PerspectiveLinearCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveLinearCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,14 +154,13 @@
 		CE383FB6218474AB0077409B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CE383FC32184AE690077409B /* PerspectiveBehavior.swift */,
-				CE383FBF2184AB440077409B /* PerspectiveMotionBehabior.swift */,
-				CE383FBB21849F390077409B /* PerspectiveMovementCoordinator.swift */,
-				CE383FBD21849FC00077409B /* PerspectiveParallaxCoordinator.swift */,
-				CE383FC12184ACE90077409B /* PerspectiveScrollBehavior.swift */,
+				CEF2F98B21AF130C00649237 /* behaviours */,
+				CEF2F99421AF197F00649237 /* curves */,
+				CE383FC32184AE690077409B /* PerspectiveBehaviour.swift */,
 				CE383FC721861B760077409B /* PerspectiveSheet.swift */,
 				CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */,
 				CE383FB7218474AB0077409B /* PerspectiveView.swift */,
+				CEF2F99021AF179E00649237 /* PerspectiveCurve.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -173,6 +174,24 @@
 				CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift */,
 			);
 			path = Samples;
+			sourceTree = "<group>";
+		};
+		CEF2F98B21AF130C00649237 /* behaviours */ = {
+			isa = PBXGroup;
+			children = (
+				CEF2F98D21AF130C00649237 /* PerspectiveMotionBehabiour.swift */,
+				CEF2F98C21AF130C00649237 /* PerspectiveScrollBehaviour.swift */,
+			);
+			path = behaviours;
+			sourceTree = "<group>";
+		};
+		CEF2F99421AF197F00649237 /* curves */ = {
+			isa = PBXGroup;
+			children = (
+				CEF2F99521AF197F00649237 /* PerspectiveLinearCurve.swift */,
+				CE3CE23421F600B10030F9C3 /* PerspectiveEaseInOutCurve.swift */,
+			);
+			path = curves;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,19 +325,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3CE23521F600B10030F9C3 /* PerspectiveEaseInOutCurve.swift in Sources */,
 				CE383FCE21863E900077409B /* MotionBehaviorSampleVC.swift in Sources */,
-				CE383FBC21849F390077409B /* PerspectiveMovementCoordinator.swift in Sources */,
 				CE383F892184739C0077409B /* ScrollBehaviorSampleVC.swift in Sources */,
 				CE383FC821861B760077409B /* PerspectiveSheet.swift in Sources */,
 				CE383FCC218627CF0077409B /* RootViewController.swift in Sources */,
-				CE383FC02184AB440077409B /* PerspectiveMotionBehabior.swift in Sources */,
-				CE383FC22184ACE90077409B /* PerspectiveScrollBehavior.swift in Sources */,
+				CEF2F98F21AF130C00649237 /* PerspectiveMotionBehabiour.swift in Sources */,
 				CE383F872184739C0077409B /* AppDelegate.swift in Sources */,
 				CE383FB8218474AB0077409B /* PerspectiveView.swift in Sources */,
-				CE383FC42184AE690077409B /* PerspectiveBehavior.swift in Sources */,
+				CEF2F99121AF179E00649237 /* PerspectiveCurve.swift in Sources */,
+				CEF2F99621AF197F00649237 /* PerspectiveLinearCurve.swift in Sources */,
+				CE383FC42184AE690077409B /* PerspectiveBehaviour.swift in Sources */,
 				CE383FCA218624080077409B /* PerspectiveSheetBuilder.swift in Sources */,
 				CEDA7DEE218B781D00AE2AB9 /* Scroll+MotionBehaviorSampleVC.swift in Sources */,
-				CE383FBE21849FC00077409B /* PerspectiveParallaxCoordinator.swift in Sources */,
+				CEF2F98E21AF130C00649237 /* PerspectiveScrollBehaviour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

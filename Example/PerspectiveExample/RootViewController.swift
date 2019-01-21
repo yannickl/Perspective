@@ -34,15 +34,15 @@ class RootViewController: UITableViewController {
   }
 
   let samples = [
-    Sample(title: "Scroll", description: "Sample with scroll behavior", segueId: "Scroll"),
-    Sample(title: "Motion", description: "Sample with motion behavior", segueId: "Motion"),
-    Sample(title: "Scroll & Motion", description: "Sample with scrol & motion behavior", segueId: "Scroll+Motion"),
+    Sample(title: "Scroll", description: "Sample with scroll behaviour", segueId: "Scroll"),
+    Sample(title: "Motion", description: "Sample with motion behaviour", segueId: "Motion"),
+    Sample(title: "Scroll & Motion", description: "Sample with scroll & motion behaviours", segueId: "Scroll+Motion"),
   ]
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.title = "Sample List"
+    self.title = "Samples"
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

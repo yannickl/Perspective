@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="-1239" y="-58"/>
         </scene>
-        <!--Scroll Behavior SampleVC-->
+        <!--Scroll Behaviour SampleVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ScrollBehaviorSampleVC" customModule="PerspectiveExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ScrollBehaviourSampleVC" customModule="PerspectiveExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,6 +86,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2b6-0Y-FqS" customClass="PerspectiveView" customModule="PerspectiveExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lK5-QF-r2C" appends="YES" id="F9b-Zp-bfr"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -102,13 +106,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="lK5-QF-r2C">
+                    <connections>
+                        <action selector="tapAction:" destination="BYZ-38-t0r" id="Q1x-3x-3j0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="860" y="-761"/>
         </scene>
-        <!--Motion Behavior SampleVC-->
+        <!--Motion Behaviour SampleVC-->
         <scene sceneID="Tly-sa-fQg">
             <objects>
-                <viewController id="EYZ-3P-SHv" customClass="MotionBehaviorSampleVC" customModule="PerspectiveExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EYZ-3P-SHv" customClass="MotionBehaviourSampleVC" customModule="PerspectiveExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2gC-GG-dpu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,6 +125,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MW9-J7-Q8v" customClass="PerspectiveView" customModule="PerspectiveExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="J4V-fh-7We" appends="YES" id="Md3-Bz-AEw"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -132,13 +145,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6H-3R-fYs" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="J4V-fh-7We">
+                    <connections>
+                        <action selector="tapAction:" destination="EYZ-3P-SHv" id="e4y-tW-tlx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="860" y="-70"/>
         </scene>
-        <!--Scroll Motion Behavior SampleVC-->
+        <!--Scroll Motion Behaviour SampleVC-->
         <scene sceneID="l4m-09-Kr4">
             <objects>
-                <viewController id="DP0-yI-qxX" customClass="ScrollMotionBehaviorSampleVC" customModule="PerspectiveExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DP0-yI-qxX" customClass="ScrollMotionBehaviourSampleVC" customModule="PerspectiveExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jwJ-zp-zCc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,6 +164,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dna-ed-02p" customClass="PerspectiveView" customModule="PerspectiveExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IgH-jT-I4M" appends="YES" id="JBC-Mj-X6V"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -162,6 +184,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ak-eY-UiC" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IgH-jT-I4M">
+                    <connections>
+                        <action selector="tapAction:" destination="DP0-yI-qxX" id="Own-YN-1wC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="860" y="644"/>
         </scene>

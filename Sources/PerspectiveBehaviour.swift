@@ -26,16 +26,15 @@
 
 import UIKit
 
-final public class PerspectiveParallaxCoordinator: PerspectiveMovementCoordinator {
-  public func updatePosition(of sheets: [PerspectiveSheet], offset: CGPoint) {
-    let distributedDistanceRatio = 1 / CGFloat(sheets.count - 1)
+public protocol PerspectiveBehaviourDelegate: class {
+  func behaviour(_ behaviour: PerspectiveBehaviour, didUpdate offset: CGPoint)
+}
 
-    for (i, sheet) in sheets.enumerated() {
-      var vf = sheet.view.frame
-      vf.origin.x = sheet.offset.x + offset.x * distributedDistanceRatio * CGFloat(i) * -1
-      vf.origin.y = sheet.offset.y + offset.y * distributedDistanceRatio * CGFloat(i) * -1
+public protocol PerspectiveBehaviour {
+  var identifier: String { get }
+  var offset: CGPoint { get }
 
-      sheet.view.frame = vf
-    }
-  }
+  func link(to view: UIView, delegate: PerspectiveBehaviourDelegate)
+  func unlink()
+  func dimensionsDidUpdate(bounds: CGRect, contentSize: CGSize)
 }

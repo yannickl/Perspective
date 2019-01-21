@@ -26,6 +26,14 @@
 
 import UIKit
 
-public protocol PerspectiveMovementCoordinator {
-  func updatePosition(of sheets: [PerspectiveSheet], offset: CGPoint)
+public struct PerspectiveCurve {
+  private let curve: (_ time: CGFloat, _ distance: CGFloat) -> CGFloat
+
+  public init(curve: @escaping (_ time: CGFloat, _ distance: CGFloat) -> CGFloat) {
+    self.curve = curve
+  }
+
+  func value(at time: CGFloat, depth: CGFloat) -> CGFloat {
+    return curve(time, depth)
+  }
 }
