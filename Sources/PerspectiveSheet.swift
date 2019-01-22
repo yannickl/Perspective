@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -30,7 +30,7 @@ import UIKit
 public struct PerspectiveSheet {
   public let view: UIView
   public let depth: CGFloat?
-  let offset: CGPoint
+  public let offset: CGPoint
 
   public init(view: UIView, builder block: PerspectiveSheetBuilder.Block = { _ in }) {
     self.view = view
@@ -39,7 +39,7 @@ public struct PerspectiveSheet {
 
     block(builder)
 
-    self.depth = builder.depth
+    self.depth = builder._depth
     self.offset = builder.offset
   }
 }

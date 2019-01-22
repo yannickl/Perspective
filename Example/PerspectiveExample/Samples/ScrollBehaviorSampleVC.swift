@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -25,6 +25,7 @@
  */
 
 import UIKit
+import Perspective
 
 class ScrollBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
@@ -36,9 +37,10 @@ class ScrollBehaviourSampleVC: UIViewController {
     self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
     setupPerspective()
+    tapAction(nil)
   }
 
-  @IBAction func tapAction(_ gesture: UITapGestureRecognizer) {
+  @IBAction func tapAction(_ gesture: UITapGestureRecognizer?) {
     let isNavigationBarHidden = self.navigationController?.isNavigationBarHidden ?? false
 
     self.navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
@@ -48,8 +50,8 @@ class ScrollBehaviourSampleVC: UIViewController {
     let contentSize = CGSize(width: 1599, height: 900) // CGSize(width: 1443, height: 812)
     perspectiveView.contentSize = contentSize
 
-    for i in stride(from: 7, to: 0, by: -1) {
-      let imgView = UIImageView(image: UIImage(named: "castle-layer0\(i)"))
+    for index in stride(from: 7, to: 0, by: -1) {
+      let imgView = UIImageView(image: UIImage(named: "castle-layer0\(index)"))
       imgView.frame.size = contentSize
 
       perspectiveView.addArrangedSubview(imgView)
@@ -58,4 +60,3 @@ class ScrollBehaviourSampleVC: UIViewController {
     perspectiveView.addBehaviour(PerspectiveScrollBehaviour())
   }
 }
-

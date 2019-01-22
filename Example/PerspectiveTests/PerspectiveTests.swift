@@ -1,15 +1,15 @@
 //
-//  PerspectiveExampleTests.swift
-//  PerspectiveExampleTests
+//  PerspectiveTests.swift
+//  PerspectiveTests
 //
-//  Created by Yannick LORIOT on 27/10/2018.
-//  Copyright © 2018 Yannick Loriot. All rights reserved.
+//  Created by Yannick LORIOT on 23/01/2019.
+//  Copyright © 2019 Yannick Loriot. All rights reserved.
 //
 
 import XCTest
-@testable import PerspectiveExample
+@testable import Perspective
 
-class PerspectiveExampleTests: XCTestCase {
+class PerspectiveTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

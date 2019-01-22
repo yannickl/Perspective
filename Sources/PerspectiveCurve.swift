@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -26,13 +26,28 @@
 
 import UIKit
 
+/**
+ The abstract timing curve struct.
+ */
 public struct PerspectiveCurve {
-  private let curve: (_ time: CGFloat, _ distance: CGFloat) -> CGFloat
+  /**
+   - parameter time:
+   - parameter depth:
+   */
+  public typealias TimingFunction = (_ time: CGFloat, _ depth: CGFloat) -> CGFloat
+  private let curve: TimingFunction
 
-  public init(curve: @escaping (_ time: CGFloat, _ distance: CGFloat) -> CGFloat) {
+  /**
+   - parameter curve:
+   */
+  public init(curve: @escaping TimingFunction) {
     self.curve = curve
   }
 
+  /**
+   - parameter time:
+   - parameter depth:
+   */
   func value(at time: CGFloat, depth: CGFloat) -> CGFloat {
     return curve(time, depth)
   }

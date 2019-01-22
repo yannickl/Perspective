@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com

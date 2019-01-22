@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -25,6 +25,7 @@
  */
 
 import UIKit
+import Perspective
 
 class MotionBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
@@ -36,9 +37,10 @@ class MotionBehaviourSampleVC: UIViewController {
     self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
     setupPerspective()
+    tapAction(nil)
   }
 
-  @IBAction func tapAction(_ gesture: UITapGestureRecognizer) {
+  @IBAction func tapAction(_ gesture: UITapGestureRecognizer?) {
     let isNavigationBarHidden = self.navigationController?.isNavigationBarHidden ?? false
 
     self.navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
@@ -47,16 +49,14 @@ class MotionBehaviourSampleVC: UIViewController {
   func setupPerspective() {
     perspectiveView.contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
 
-    for i in stride(from: 6, to: 0, by: -1) {
-      let imgView = UIImageView(image: UIImage(named: "candy-layer0\(i)"))
+    for index in stride(from: 6, to: 0, by: -1) {
+      let imgView = UIImageView(image: UIImage(named: "candy-layer0\(index)"))
       imgView.frame = CGRect(origin: .zero, size: CGSize(width: 1600, height: 900))
 
-      let sheet = PerspectiveSheet(view: imgView)
-      perspectiveView.addSheet(sheet)
+      perspectiveView.addArrangedSubview(imgView)
     }
 
     let motionBehaviour = PerspectiveMotionBehabior()
     perspectiveView.addBehaviour(motionBehaviour)
   }
 }
-

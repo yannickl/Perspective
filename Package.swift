@@ -24,31 +24,13 @@
  *
  */
 
-import UIKit
+import PackageDescription
 
-public class PerspectiveSheetBuilder {
-  public typealias Block = (PerspectiveSheetBuilder) -> Void
-
-  var _depth: CGFloat?
-
-  public var depth: CGFloat? {
-    get {
-      return _depth
-    }
-    set {
-      guard let value = newValue else {
-        _depth = nil
-        return
-      }
-
-      _depth = max(min(value, 1), 0)
-    }
-  }
-  public var offset: CGPoint = .zero
-
-  public init() {}
-
-  public init(buildBlock: Block) {
-    buildBlock(self)
-  }
-}
+let package = Package(
+  name: "Perspective",
+  products: [
+    .library(
+      name: "Perspective",
+      targets: ["Perspective"]),
+  ],
+)

@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -26,22 +26,46 @@
 
 import UIKit
 
+/**
+ A streamlined interface for creating a parallax effect with its subviews.
+
+ Perspective views let you create parallax effects using behaviours and curves.
+ */
 final public class PerspectiveView: UIView {
+  /**
+   The size of the content view.
+
+   The unit of size is points. The default size is `CGSize.zero`.
+   */
   public var contentSize: CGSize = .zero {
     didSet { updateDimensions() }
   }
 
+  /**
+   The point at which the origin of the content view is offset from the origin of the scroll view.
+   */
   public var contentOffset: CGPoint {
-    get {
-      return CGPoint(x: distance.width * offsetRatio.x, y: distance.height * offsetRatio.y)
-    }
+    return CGPoint(x: distance.width * offsetRatio.x, y: distance.height * offsetRatio.y)
   }
 
   /**
-    The behaviours objects currently attached to the perspective.
-  */
+   The behaviours objects currently attached to the perspective.
+   */
   public private(set) var behaviours: [PerspectiveBehaviour] = []
+
+  /**
+   The timing curve function used for the scrolling effect.
+
+   The default perspective curve is `PerspectiveCurve.linear`.
+   */
   public var curve: PerspectiveCurve = .linear
+
+  /**
+   The list of views arranged by the perspective view.
+   */
+  public var arrangedSubviews: [UIView] {
+    return parallaxView.subviews
+  }
 
   /// The view used to add the parallax sheets
   private let parallaxView = UIView()
@@ -53,6 +77,8 @@ final public class PerspectiveView: UIView {
   private var offsetRatio: CGPoint = .zero {
     didSet { layoutArrangedSubview(offsetRatio: offsetRatio) }
   }
+
+  // MARK: - UIView Lifecycle
 
   public override init(frame: CGRect) {
     super.init(frame: frame)
@@ -73,6 +99,70 @@ final public class PerspectiveView: UIView {
 
     updateDimensions()
   }
+
+  // MARK: - Managing Arranged Subviews
+
+  /**
+   Adds a view to the end of the arrangedSubviews array.
+
+   - parameter view: The view to be added to the array of views arranged by the perspective.
+   */
+  public func addArrangedSubview(_ view: UIView) {
+    let layer = PerspectiveSheet(view: view)
+
+    addSheet(layer)
+  }
+
+  /**
+   Removes the provided view from the perspective's array of arranged subviews.
+
+   The view is also removed from the view hierarchy.
+
+   - parameter view: The view to be removed from the array of views arranged by the perspective.
+   */
+  public func removeArrangedSubview(_ view: UIView) {
+    view.removeFromSuperview()
+  }
+
+  func addSheet(_ layer: PerspectiveSheet) {
+    sheets.append(layer)
+
+    layer.view.frame = CGRect(origin: layer.offset, size: layer.view.frame.size)
+
+    parallaxView.addSubview(layer.view)
+  }
+
+  // MARK: - Managing Behaviours
+
+  /**
+   Attaches a behaviour to the perspective view.
+
+   - parameter behaviour: The behaviour to be managed by the perspective.
+   */
+  public func addBehaviour(_ behaviour: PerspectiveBehaviour) {
+    assert(
+      behaviours.first(where: { $0.identifier == behaviour.identifier }) == nil,
+      "A behavior with identifier \(behaviour.identifier) is already in use"
+    )
+
+    behaviours.append(behaviour)
+
+    behaviour.link(to: self, delegate: self)
+    behaviour.dimensionsDidUpdate(bounds: bounds, contentSize: contentSize)
+  }
+
+  /**
+   Detaches a gesture recognizer from the perspective view.
+
+   - parameter behaviour: The behaviour to be forgotten by the perspective.
+   */
+  public func removeBehaviour(_ behaviour: PerspectiveBehaviour) {
+    behaviour.unlink()
+
+    behaviours = behaviours.filter { $0.identifier != behaviour.identifier }
+  }
+
+  // MARK: - Private methods
 
   private func updateDimensions() {
     behaviours.forEach { $0.dimensionsDidUpdate(bounds: bounds, contentSize: contentSize) }
@@ -97,50 +187,14 @@ final public class PerspectiveView: UIView {
     }
   }
 
-  /**
-   Adds a view to the end of the stackedSubviews array.
-   */
-  public func addArrangedSubview(_ view: UIView) {
-    let layer = PerspectiveSheet(view: view)
-
-    addSheet(layer)
-  }
-
-  public func addSheet(_ layer: PerspectiveSheet) {
-    sheets.append(layer)
-
-    layer.view.frame = CGRect(origin: layer.offset, size: layer.view.frame.size)
-
-    parallaxView.addSubview(layer.view)
-  }
-
-  /**
-   Attaches a behaviour to the perspective view.
- */
-  public func addBehaviour(_ behaviour: PerspectiveBehaviour) {
-    assert(
-      behaviours.first(where: { $0.identifier == behaviour.identifier }) == nil,
-      "A behavior with identifier \(behaviour.identifier) is already in use"
-    )
-
-    behaviours.append(behaviour)
-
-    behaviour.link(to: self, delegate: self)
-    behaviour.dimensionsDidUpdate(bounds: bounds, contentSize: contentSize)
-  }
-
-  public func removeBehaviour(_ behaviour: PerspectiveBehaviour) {
-    behaviour.unlink()
-
-    behaviours = behaviours.filter { $0.identifier != behaviour.identifier }
-  }
-
-  func layoutArrangedSubview(offsetRatio: CGPoint) {
-    let distributedDistanceRatio = 1 / CGFloat(sheets.count - 1)
+  private func layoutArrangedSubview(offsetRatio: CGPoint) {
+    let distributedDepthRatio = 1 / CGFloat(sheets.count - 1)
 
     for (i, sheet) in sheets.enumerated() {
-      let xValue = self.curve.value(at: offsetRatio.x, depth: CGFloat(i) * distributedDistanceRatio)
-      let yValue = self.curve.value(at: offsetRatio.y, depth: CGFloat(i) * distributedDistanceRatio)
+      let depth = sheet.depth ?? distributedDepthRatio * CGFloat(i)
+
+      let xValue = self.curve.value(at: offsetRatio.x, depth: depth)
+      let yValue = self.curve.value(at: offsetRatio.y, depth: depth)
 
       var vf = sheet.view.frame
 
@@ -151,6 +205,8 @@ final public class PerspectiveView: UIView {
     }
   }
 }
+
+// MARK: - PerspectiveBehaviour Delegate Extension
 
 extension PerspectiveView: PerspectiveBehaviourDelegate {
   public func behaviour(_ behaviour: PerspectiveBehaviour, didUpdate offset: CGPoint) {

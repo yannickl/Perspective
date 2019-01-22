@@ -1,0 +1,9 @@
+language: objective-c
+osx_image: xcode10
+script:
+  - brew install swiftlint || brew upgrade swiftlint
+  - swiftlint lint --config ../.swiftlint.yml
+  - cd Examples
+  - xcodebuild -version
+  - xcodebuild -project Perspective.xcodeproj -scheme iOSTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone XS" -configuration Release ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+  - bash <(curl -s https://codecov.io/bash) -cF ios

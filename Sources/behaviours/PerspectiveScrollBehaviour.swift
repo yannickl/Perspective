@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -27,9 +27,12 @@
 import Foundation
 import UIKit
 
+/**
+ The scroll behaviour.
+ */
 final public class PerspectiveScrollBehaviour: NSObject, PerspectiveBehaviour {
   private let scrollView = UIScrollView()
-  private var delegate: PerspectiveBehaviourDelegate?
+  private weak var delegate: PerspectiveBehaviourDelegate?
 
   public let identifier = "ScrollBehavior"
 
@@ -51,8 +54,9 @@ final public class PerspectiveScrollBehaviour: NSObject, PerspectiveBehaviour {
   /**
    The behavior for determining the adjusted content offsets.
 
-   This property specifies how the safe area insets are used to modify the content area of the scroll view. The default value of this property is `.never`.
-  */
+   This property specifies how the safe area insets are used to modify
+   the content area of the scroll view. The default value of this property is `UIScrollView.ContentInsetAdjustmentBehavior.never`.
+   */
   public var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior {
     get { return scrollView.contentInsetAdjustmentBehavior }
     set { scrollView.contentInsetAdjustmentBehavior = newValue }

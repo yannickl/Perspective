@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -26,6 +26,9 @@
 
 import UIKit
 
+/**
+ The linear timing curve.
+ */
 extension PerspectiveCurve {
   public static let linear = PerspectiveCurve { (time, depth) -> CGFloat in
     return time * depth

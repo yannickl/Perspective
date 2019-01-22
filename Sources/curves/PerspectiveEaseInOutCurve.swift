@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -26,6 +26,9 @@
 
 import UIKit
 
+/**
+ The ease timing curves.
+ */
 extension PerspectiveCurve {
   public static let easeInOutQuad: PerspectiveCurve = .easeInOut(2)
   public static let easeInOutCubic: PerspectiveCurve = .easeInOut(3)

@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -25,6 +25,7 @@
  */
 
 import UIKit
+import Perspective
 
 class ScrollMotionBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
@@ -36,35 +37,29 @@ class ScrollMotionBehaviourSampleVC: UIViewController {
     self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
     setupPerspective()
+    tapAction(nil)
   }
 
-  @IBAction func tapAction(_ gesture: UITapGestureRecognizer) {
+  @IBAction func tapAction(_ gesture: UITapGestureRecognizer?) {
     let isNavigationBarHidden = self.navigationController?.isNavigationBarHidden ?? false
 
     self.navigationController?.setNavigationBarHidden(!isNavigationBarHidden, animated: true)
   }
 
   func setupPerspective() {
-    let contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
+    let contentSize = CGSize(width: 1600, height: 900)
 
     perspectiveView.contentSize = contentSize
-    perspectiveView.curve = .easeInOutCubic
+    //perspectiveView.curve = .easeInOutCubic
 
-    for i in stride(from: 9, to: 0, by: -1) {
-      let imgView = UIImageView(image: UIImage(named: "snow-layer0\(i)"))
+    for index in stride(from: 9, to: 0, by: -1) {
+      let imgView = UIImageView(image: UIImage(named: "snow-layer0\(index)"))
       imgView.frame = CGRect(origin: .zero, size: contentSize)
 
-      let sheet = PerspectiveSheet(view: imgView) { _ in
-        //$0.offset = CGPoint(x: -300 - 40 * i, y: 0)
-      }
-      perspectiveView.addSheet(sheet)
+      perspectiveView.addArrangedSubview(imgView)
     }
 
-    let scrollBehaviour = PerspectiveScrollBehaviour()
-    perspectiveView.addBehaviour(scrollBehaviour)
-
-    let motionBehaviour = PerspectiveMotionBehabior()
-    perspectiveView.addBehaviour(motionBehaviour)
+    perspectiveView.addBehaviour(PerspectiveScrollBehaviour())
+    perspectiveView.addBehaviour(PerspectiveMotionBehabior())
   }
 }
-

@@ -1,5 +1,5 @@
 /*
- * PerspectiveView
+ * Perspective
  *
  * Copyright 2018-present Yannick Loriot.
  * http://yannickloriot.com
@@ -28,8 +28,11 @@ import CoreMotion
 import Foundation
 import UIKit
 
+/**
+ The motion behaviour.
+ */
 public final class PerspectiveMotionBehabior: PerspectiveBehaviour {
-  private var delegate: PerspectiveBehaviourDelegate?
+  private weak var delegate: PerspectiveBehaviourDelegate?
 
   public let identifier = "MotionBehavior"
   public private(set) var offset: CGPoint = .zero
@@ -43,11 +46,15 @@ public final class PerspectiveMotionBehabior: PerspectiveBehaviour {
     return queue
   }()
 
+  public var orientation: Orientation = .vertical
+
   deinit {
     if motionManager.isAccelerometerActive {
       motionManager.stopAccelerometerUpdates()
     }
   }
+
+  public init() {}
 
   public func link(to view: UIView, delegate: PerspectiveBehaviourDelegate) {
     guard motionManager.isAccelerometerAvailable else { return }
@@ -55,12 +62,15 @@ public final class PerspectiveMotionBehabior: PerspectiveBehaviour {
     self.delegate = delegate
     self.motionManager.accelerometerUpdateInterval = 1 / 60
 
-    self.motionManager.startAccelerometerUpdates(to: backgroundQueue) { [weak self] data, error in
+    self.motionManager.startAccelerometerUpdates(to: backgroundQueue) { [weak self] data, _ in
       guard let weakSelf = self, let data = data else { return }
 
       // Low-pass filter to smooth the measurements
-      let tiltX = Int(weakSelf.offset.x * (1 - weakSelf.lowPassRatio) + CGFloat(data.acceleration.x) * weakSelf.lowPassRatio * 100)
-      let tiltY = Int(weakSelf.offset.y * (1 - weakSelf.lowPassRatio) + CGFloat(data.acceleration.y) * weakSelf.lowPassRatio * 100)
+      let x = CGFloat(weakSelf.orientation == .vertical ? data.acceleration.x : data.acceleration.y)
+      let y = CGFloat(weakSelf.orientation == .vertical ? data.acceleration.y : data.acceleration.z)
+
+      let tiltX = Int(weakSelf.offset.x * (1 - weakSelf.lowPassRatio) + CGFloat(x) * weakSelf.lowPassRatio * -100)
+      let tiltY = Int(weakSelf.offset.y * (1 - weakSelf.lowPassRatio) + CGFloat(y) * weakSelf.lowPassRatio * -100)
 
       if Int(weakSelf.offset.x) != tiltX || Int(weakSelf.offset.y) != tiltY {
         let tilt = CGPoint(x: tiltX, y: tiltY)
@@ -80,4 +90,11 @@ public final class PerspectiveMotionBehabior: PerspectiveBehaviour {
   }
 
   public func dimensionsDidUpdate(bounds: CGRect, contentSize: CGSize) {}
+}
+
+public extension PerspectiveMotionBehabior {
+  public enum Orientation {
+    case horizontal
+    case vertical
+  }
 }
