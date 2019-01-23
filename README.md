@@ -25,7 +25,7 @@
 
 - iOS 11.0+
 - Xcode 10.0+
-- Swift 4.0+
+- Swift 4.2+
 
 ## Usage
 
