@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/yannickloriot'
   s.authors          = { 'Yannick Loriot' => 'contact@yannickloriot.com' }
   s.source           = { :git => 'https://github.com/yannickl/Perspective.git', :tag => s.version }
-  s.screenshot       = 'https://user-images.githubusercontent.com/798235/51530434-36096580-1e3b-11e9-935e-8d5114c344ed.png'
+  s.screenshot       = 'https://user-images.githubusercontent.com/798235/51686425-a60d1c80-1ff0-11e9-92e6-d2a0166eaa88.png'
 
   s.ios.deployment_target = '11.0'
 

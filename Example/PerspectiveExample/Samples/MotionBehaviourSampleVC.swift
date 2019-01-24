@@ -27,17 +27,35 @@
 import UIKit
 import Perspective
 
-class ScrollMotionBehaviourSampleVC: UIViewController {
+class MotionBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
+
+  let motionBehaviour = PerspectiveMotionBehabiour()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    self.title = "Scroll & Motion"
+    self.title = "Motion"
     self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
     setupPerspective()
     tapAction(nil)
+    updateMotionBehaviourOrientation(with: view.bounds.size)
+  }
+
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
+
+    updateMotionBehaviourOrientation(with: size)
+  }
+
+  func updateMotionBehaviourOrientation(with size: CGSize) {
+    if size.width > size.height {
+      motionBehaviour.orientation = .horizontal
+    }
+    else {
+      motionBehaviour.orientation = .vertical
+    }
   }
 
   @IBAction func tapAction(_ gesture: UITapGestureRecognizer?) {
@@ -47,19 +65,16 @@ class ScrollMotionBehaviourSampleVC: UIViewController {
   }
 
   func setupPerspective() {
-    let contentSize = CGSize(width: 1600, height: 900)
+    perspectiveView.contentSize = CGSize(width: 1600, height: 900) // CGSize(width: 1443, height: 812)
 
-    perspectiveView.contentSize = contentSize
-    //perspectiveView.curve = .easeInOutCubic
-
-    for index in stride(from: 9, to: 0, by: -1) {
-      let imgView = UIImageView(image: UIImage(named: "snow-layer0\(index)"))
-      imgView.frame = CGRect(origin: .zero, size: contentSize)
+    for index in stride(from: 6, to: 0, by: -1) {
+      let imgView = UIImageView(image: UIImage(named: "candy-layer0\(index)"))
+      imgView.frame = CGRect(origin: .zero, size: CGSize(width: 1600, height: 900))
 
       perspectiveView.addArrangedSubview(imgView)
     }
 
-    perspectiveView.addBehaviour(PerspectiveScrollBehaviour())
-    perspectiveView.addBehaviour(PerspectiveMotionBehabior())
+
+    perspectiveView.addBehaviour(motionBehaviour)
   }
 }

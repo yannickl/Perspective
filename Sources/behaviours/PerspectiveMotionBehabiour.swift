@@ -30,8 +30,10 @@ import UIKit
 
 /**
  The motion behaviour.
+
+ Uses the accelerometer to update the offset of the perspective views.
  */
-public final class PerspectiveMotionBehabior: PerspectiveBehaviour {
+public final class PerspectiveMotionBehabiour: PerspectiveBehaviour {
   private weak var delegate: PerspectiveBehaviourDelegate?
 
   public let identifier = "MotionBehavior"
@@ -46,31 +48,36 @@ public final class PerspectiveMotionBehabior: PerspectiveBehaviour {
     return queue
   }()
 
+  /**
+   Defines the orientation of the accelerometer sensor.
+
+   The default value is `PerspectiveMotionBehabior.Orientation.vertical`.
+   */
   public var orientation: Orientation = .vertical
 
   deinit {
-    if motionManager.isAccelerometerActive {
-      motionManager.stopAccelerometerUpdates()
+    if motionManager.isDeviceMotionActive {
+      motionManager.stopDeviceMotionUpdates()
     }
   }
 
   public init() {}
 
   public func link(to view: UIView, delegate: PerspectiveBehaviourDelegate) {
-    guard motionManager.isAccelerometerAvailable else { return }
+    guard motionManager.isDeviceMotionAvailable, !motionManager.isDeviceMotionActive else { return }
 
     self.delegate = delegate
     self.motionManager.accelerometerUpdateInterval = 1 / 60
 
-    self.motionManager.startAccelerometerUpdates(to: backgroundQueue) { [weak self] data, _ in
+    self.motionManager.startDeviceMotionUpdates(to: backgroundQueue) { [weak self] data, _ in
       guard let weakSelf = self, let data = data else { return }
 
-      // Low-pass filter to smooth the measurements
-      let x = CGFloat(weakSelf.orientation == .vertical ? data.acceleration.x : data.acceleration.y)
-      let y = CGFloat(weakSelf.orientation == .vertical ? data.acceleration.y : data.acceleration.z)
+      let x = CGFloat(weakSelf.orientation == .vertical ? data.gravity.x : data.gravity.y)
+      let y = CGFloat(weakSelf.orientation == .vertical ? -data.gravity.y : data.gravity.z)
 
-      let tiltX = Int(weakSelf.offset.x * (1 - weakSelf.lowPassRatio) + CGFloat(x) * weakSelf.lowPassRatio * -100)
-      let tiltY = Int(weakSelf.offset.y * (1 - weakSelf.lowPassRatio) + CGFloat(y) * weakSelf.lowPassRatio * -100)
+      // Low-pass filter to smooth the measurements
+      let tiltX = Int(weakSelf.offset.x * (1 - weakSelf.lowPassRatio) + x * weakSelf.lowPassRatio * -100)
+      let tiltY = Int(weakSelf.offset.y * (1 - weakSelf.lowPassRatio) + y * weakSelf.lowPassRatio * -100)
 
       if Int(weakSelf.offset.x) != tiltX || Int(weakSelf.offset.y) != tiltY {
         let tilt = CGPoint(x: tiltX, y: tiltY)
@@ -92,9 +99,14 @@ public final class PerspectiveMotionBehabior: PerspectiveBehaviour {
   public func dimensionsDidUpdate(bounds: CGRect, contentSize: CGSize) {}
 }
 
-public extension PerspectiveMotionBehabior {
+/**
+ The orientation of the motion behaviour sensor.
+ */
+public extension PerspectiveMotionBehabiour {
   public enum Orientation {
+    /// The device is in landscape mode.
     case horizontal
+    /// The device is in portrait mode.
     case vertical
   }
 }

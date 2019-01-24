@@ -27,28 +27,33 @@
 import UIKit
 
 /**
- The abstract timing curve struct.
+ The abstract timing function curve struct.
+
+ The `PerspectiveCurve` defines the API to create custom timing function that specifies
+ the speed over time of an object being animated from one value to another.
  */
 public struct PerspectiveCurve {
   /**
-   - parameter time:
-   - parameter depth:
+   The timing function.
+
+   - parameter time: The time of the animation between 0 and 1.
+   - parameter depth: The depth of the perspective layer between 0 and 1.
+   - returns: The speed of the animation between 0 and 1.
    */
   public typealias TimingFunction = (_ time: CGFloat, _ depth: CGFloat) -> CGFloat
-  private let curve: TimingFunction
+
+  private let timingFunction: TimingFunction
 
   /**
-   - parameter curve:
+   Initialize a `PerspectiveCurve` using a given timing function.
+
+   - parameter timingFunction: The time function.
    */
-  public init(curve: @escaping TimingFunction) {
-    self.curve = curve
+  public init(timingFunction: @escaping TimingFunction) {
+    self.timingFunction = timingFunction
   }
 
-  /**
-   - parameter time:
-   - parameter depth:
-   */
-  func value(at time: CGFloat, depth: CGFloat) -> CGFloat {
-    return curve(time, depth)
+  internal func value(at time: CGFloat, depth: CGFloat) -> CGFloat {
+    return timingFunction(time, depth)
   }
 }

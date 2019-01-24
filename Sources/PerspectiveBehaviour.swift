@@ -31,8 +31,10 @@ import UIKit
  */
 public protocol PerspectiveBehaviourDelegate: class {
   /**
-   - parameter behaviour:
-   - parameter offset:
+   Tells the delegate when the offset of the behavior has changed.
+
+   - parameter behaviour: The behaviour object.
+   - parameter offset: The current offset of the behaviour.
    */
   func behaviour(_ behaviour: PerspectiveBehaviour, didUpdate offset: CGPoint)
 }
@@ -45,20 +47,34 @@ public protocol PerspectiveBehaviour {
    A unique global identifier.
    */
   var identifier: String { get }
+
   /**
+   The point at which the origin of the behaviour is offset from its origin.
+
+   The default value is CGPointZero.
    */
   var offset: CGPoint { get }
+
   /**
-   - parameter view:
-   - parameter delegate:
+   Links the behaviour to the given view, and provides its delegate.
+
+   - parameter view: A `UIView` object.
+   - parameter delegate: The delegate of the behaviour object.
    */
   func link(to view: UIView, delegate: PerspectiveBehaviourDelegate)
+
   /**
+   Unlink the behaviour from its associated delegate and view.
    */
   func unlink()
+
   /**
-   - parameter bounds:
-   - parameter contentSize:
+   Tells the behaviour the dimensions updated.
+
+   If the behaviour needs to know the dimension of the perspective view, this method allows it to react to this change.
+
+   - parameter bounds: The bounds of the perspective view.
+   - parameter contentSize: The content size of the perspective view.
    */
   func dimensionsDidUpdate(bounds: CGRect, contentSize: CGSize)
 }

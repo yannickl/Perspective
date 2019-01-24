@@ -41,11 +41,10 @@ let perspectiveView = PerspectiveView(frame: CGRect(x: 0, y: 0, width: 100, heig
 view.addSubview(perspectiveView)
 ```
 
-Configure its `contentSize` and add its behaviours:
+Configure its `contentSize`:
 
 ```swift
 perspectiveView.contentSize = CGSize(width: 1599, height: 900)
-perspectiveView.addBehaviour(PerspectiveScrollBehaviour())
 ```
 
 Add the images as arranged subviews:
@@ -59,6 +58,22 @@ for i in stride(from: 7, to: 0, by: -1) {
 }
 ```
 
+### Behaviours
+
+A behaviour is an object that allows you to interact with the perspective view. If you want to let your users to scroll the persective you can add a `PerspectiveScrollBehaviour`, and if you want to use the accelerometer just add a `PerspectiveMotionBehaviour`. To add a new behaviour to your perspective view you must call the `addBehaviour` method.
+
+#### Scroll
+
+```swift
+perspectiveView.addBehaviour(PerspectiveScrollBehaviour())
+```
+
+#### Motion
+
+```swift
+perspectiveView.addBehaviour(PerspectiveMotionBehaviour())
+```
+
 ### How it works
 
 ![Layers](https://user-images.githubusercontent.com/798235/51544126-7a0e6180-1e5f-11e9-8071-a53271c99431.png)
@@ -67,9 +82,17 @@ for i in stride(from: 7, to: 0, by: -1) {
 2. the `PerspectiveView`'s `contentSize`: defines the extent of the content (usually `UIImageView`).
 3. the `arrangedSubviews`: list the views arranged by the perspective view. The order of the views work like in any `UIView`. The foreground view is at the end of the array (as opposite to the background which is the first element of the array).
 
+### Configuration
+
+If you use the motion behaviour, configure the `UIRequiredDeviceCapabilities` key of its *Info.plist* file with the `accelerometer` and `gyroscope` values:
+
+![Required device capabilities](https://user-images.githubusercontent.com/798235/51685656-0ef39500-1fef-11e9-85e6-3354a786feec.png)
+
 To go further, take a look at the example project.
 
 ## Installation
+
+The recommended approach to use *Perspective* in your project is using the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
 
 #### CocoaPods
 

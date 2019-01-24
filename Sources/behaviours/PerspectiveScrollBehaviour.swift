@@ -29,6 +29,9 @@ import UIKit
 
 /**
  The scroll behaviour.
+
+ Uses a `UIScrollView` to update the offset of the perspective views through user
+ touch interaction.
  */
 final public class PerspectiveScrollBehaviour: NSObject, PerspectiveBehaviour {
   private let scrollView = UIScrollView()
