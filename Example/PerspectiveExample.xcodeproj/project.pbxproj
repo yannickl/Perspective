@@ -15,7 +15,6 @@
 		CE383FCC218627CF0077409B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCB218627CF0077409B /* RootViewController.swift */; };
 		CE383FCE21863E900077409B /* MotionBehaviourSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FCD21863E900077409B /* MotionBehaviourSampleVC.swift */; };
 		CE8880A421F880090065C50D /* Perspective.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE88809B21F880080065C50D /* Perspective.framework */; };
-		CE8880AB21F880090065C50D /* PerspectiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8880AA21F880090065C50D /* PerspectiveTests.swift */; };
 		CE8880AD21F880090065C50D /* Perspective.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88809D21F880090065C50D /* Perspective.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE8880B021F880090065C50D /* Perspective.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE88809B21F880080065C50D /* Perspective.framework */; };
 		CE8880B121F880090065C50D /* Perspective.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE88809B21F880080065C50D /* Perspective.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -28,6 +27,7 @@
 		CE8880BF21F880240065C50D /* PerspectiveSheetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FC9218624080077409B /* PerspectiveSheetBuilder.swift */; };
 		CE8880C021F880240065C50D /* PerspectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FB7218474AB0077409B /* PerspectiveView.swift */; };
 		CE8880C121F880240065C50D /* PerspectiveCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F99021AF179E00649237 /* PerspectiveCurve.swift */; };
+		CE8880C721FA1ECF0065C50D /* PerspectiveCurveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8880C621FA1ECF0065C50D /* PerspectiveCurveTests.swift */; };
 		CEDA7DEE218B781D00AE2AB9 /* Scroll+MotionBehaviourSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviourSampleVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,19 +39,19 @@
 			remoteGlobalIDString = CE88809A21F880080065C50D;
 			remoteInfo = Perspective;
 		};
-		CE8880A721F880090065C50D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE383F7B2184739C0077409B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CE383F822184739C0077409B;
-			remoteInfo = PerspectiveExample;
-		};
 		CE8880AE21F880090065C50D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE383F7B2184739C0077409B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CE88809A21F880080065C50D;
 			remoteInfo = Perspective;
+		};
+		CE8880C821FA31E50065C50D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE383F7B2184739C0077409B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE383F822184739C0077409B;
+			remoteInfo = PerspectiveExample;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -88,8 +88,8 @@
 		CE88809D21F880090065C50D /* Perspective.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Perspective.h; sourceTree = "<group>"; };
 		CE88809E21F880090065C50D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8880A321F880090065C50D /* PerspectiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE8880AA21F880090065C50D /* PerspectiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveTests.swift; sourceTree = "<group>"; };
 		CE8880AC21F880090065C50D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE8880C621FA1ECF0065C50D /* PerspectiveCurveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveCurveTests.swift; sourceTree = "<group>"; };
 		CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviourSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll+MotionBehaviourSampleVC.swift"; sourceTree = "<group>"; };
 		CEF2F98C21AF130C00649237 /* PerspectiveScrollBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveScrollBehaviour.swift; sourceTree = "<group>"; };
 		CEF2F98D21AF130C00649237 /* PerspectiveMotionBehabiour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveMotionBehabiour.swift; sourceTree = "<group>"; };
@@ -128,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				CE383FB6218474AB0077409B /* Sources */,
+				CE8880C521FA1ECF0065C50D /* Tests */,
 				CE383F852184739C0077409B /* PerspectiveExample */,
 				CE88809C21F880090065C50D /* Perspective */,
 				CE8880A921F880090065C50D /* PerspectiveTests */,
@@ -196,10 +197,18 @@
 		CE8880A921F880090065C50D /* PerspectiveTests */ = {
 			isa = PBXGroup;
 			children = (
-				CE8880AA21F880090065C50D /* PerspectiveTests.swift */,
 				CE8880AC21F880090065C50D /* Info.plist */,
 			);
 			path = PerspectiveTests;
+			sourceTree = "<group>";
+		};
+		CE8880C521FA1ECF0065C50D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CE8880C621FA1ECF0065C50D /* PerspectiveCurveTests.swift */,
+			);
+			name = Tests;
+			path = ../Tests;
 			sourceTree = "<group>";
 		};
 		CEF2F98B21AF130C00649237 /* behaviours */ = {
@@ -284,7 +293,7 @@
 			);
 			dependencies = (
 				CE8880A621F880090065C50D /* PBXTargetDependency */,
-				CE8880A821F880090065C50D /* PBXTargetDependency */,
+				CE8880C921FA31E50065C50D /* PBXTargetDependency */,
 			);
 			name = PerspectiveTests;
 			productName = PerspectiveTests;
@@ -414,7 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE8880AB21F880090065C50D /* PerspectiveTests.swift in Sources */,
+				CE8880C721FA1ECF0065C50D /* PerspectiveCurveTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,15 +435,15 @@
 			target = CE88809A21F880080065C50D /* Perspective */;
 			targetProxy = CE8880A521F880090065C50D /* PBXContainerItemProxy */;
 		};
-		CE8880A821F880090065C50D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CE383F822184739C0077409B /* PerspectiveExample */;
-			targetProxy = CE8880A721F880090065C50D /* PBXContainerItemProxy */;
-		};
 		CE8880AF21F880090065C50D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE88809A21F880080065C50D /* Perspective */;
 			targetProxy = CE8880AE21F880090065C50D /* PBXContainerItemProxy */;
+		};
+		CE8880C921FA31E50065C50D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE383F822184739C0077409B /* PerspectiveExample */;
+			targetProxy = CE8880C821FA31E50065C50D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -677,6 +686,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8Y92BXSXC;
 				INFOPLIST_FILE = PerspectiveTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -697,6 +707,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N8Y92BXSXC;
 				INFOPLIST_FILE = PerspectiveTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -31,6 +31,6 @@ import UIKit
  */
 extension PerspectiveCurve {
   public static let linear = PerspectiveCurve { (time, depth) -> CGFloat in
-    return time * depth
+    return time * (1 - depth)
   }
 }

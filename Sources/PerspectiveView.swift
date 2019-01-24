@@ -193,8 +193,8 @@ final public class PerspectiveView: UIView {
     for (i, sheet) in sheets.enumerated() {
       let depth = sheet.depth ?? distributedDepthRatio * CGFloat(i)
 
-      let xValue = self.curve.value(at: offsetRatio.x, depth: depth)
-      let yValue = self.curve.value(at: offsetRatio.y, depth: depth)
+      let xValue = self.curve.value(at: offsetRatio.x, depth: 1 - depth)
+      let yValue = self.curve.value(at: offsetRatio.y, depth: 1 - depth)
 
       var vf = sheet.view.frame
 

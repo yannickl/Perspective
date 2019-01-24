@@ -37,11 +37,10 @@ extension PerspectiveCurve {
   public static let easeInOut = { (slope: CGFloat) in
     return PerspectiveCurve { (time, depth) -> CGFloat in
       let sigmoid = { (t: CGFloat, alpha: CGFloat) -> CGFloat in
-        1 / (1 + exp(-alpha * t)) - 0.5
+        1 / (1 + pow(time / max(1 - time, 0.00000001), -alpha))
       }
-      let easeInOut = (0.5 / sigmoid(1, slope)) * sigmoid(2 * time - 1, slope) + 0.5
 
-      return easeInOut * depth
+      return sigmoid(time, slope) * (1 - depth)
     }
   }
 }
