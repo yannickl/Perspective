@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = 'Perspective'
-  s.version          = '0.9.0'
+  s.version          = '0.9.1'
   s.license          = 'MIT'
+  s.swift_version    = ['5.0', '5.1']
   s.summary          = 'Powerful scrolling and motion parallax for iOS.'
   s.homepage         = 'https://github.com/yannickl/Perspective.git'
   s.social_media_url = 'https://twitter.com/yannickloriot'

@@ -25,7 +25,7 @@
 
 - iOS 11.0+
 - Xcode 10.0+
-- Swift 4.2+
+- Swift 5+
 
 ## Usage
 
@@ -112,7 +112,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 
 use_frameworks!
-pod 'Perspective', '~> 0.9.0'
+pod 'Perspective', '~> 0.9.1'
 ```
 
 Install into your project:
@@ -143,7 +143,7 @@ $ brew install carthage
 To integrate `Perspective` into your Xcode project using Carthage, specify it in your `Cartfile` file:
 
 ```ogdl
-github "yannickl/Perspective" >= 0.9.0
+github "yannickl/Perspective" >= 0.9.1
 ```
 
 #### Manually
