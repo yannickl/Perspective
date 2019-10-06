@@ -18,7 +18,6 @@
 		CE8880AD21F880090065C50D /* Perspective.h in Headers */ = {isa = PBXBuildFile; fileRef = CE88809D21F880090065C50D /* Perspective.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE8880B021F880090065C50D /* Perspective.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE88809B21F880080065C50D /* Perspective.framework */; };
 		CE8880B121F880090065C50D /* Perspective.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE88809B21F880080065C50D /* Perspective.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE8880B921F880240065C50D /* PerspectiveMotionBehabiour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F98D21AF130C00649237 /* PerspectiveMotionBehabiour.swift */; };
 		CE8880BA21F880240065C50D /* PerspectiveScrollBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F98C21AF130C00649237 /* PerspectiveScrollBehaviour.swift */; };
 		CE8880BB21F880240065C50D /* PerspectiveLinearCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F99521AF197F00649237 /* PerspectiveLinearCurve.swift */; };
 		CE8880BC21F880240065C50D /* PerspectiveEaseInOutCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3CE23421F600B10030F9C3 /* PerspectiveEaseInOutCurve.swift */; };
@@ -28,6 +27,7 @@
 		CE8880C021F880240065C50D /* PerspectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE383FB7218474AB0077409B /* PerspectiveView.swift */; };
 		CE8880C121F880240065C50D /* PerspectiveCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2F99021AF179E00649237 /* PerspectiveCurve.swift */; };
 		CE8880C721FA1ECF0065C50D /* PerspectiveCurveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8880C621FA1ECF0065C50D /* PerspectiveCurveTests.swift */; };
+		CE938DE4234A825F00BA80C0 /* PerspectiveMotionBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE938DE2234A825900BA80C0 /* PerspectiveMotionBehaviour.swift */; };
 		CEDA7DEE218B781D00AE2AB9 /* Scroll+MotionBehaviourSampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviourSampleVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,9 +90,9 @@
 		CE8880A321F880090065C50D /* PerspectiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerspectiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8880AC21F880090065C50D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8880C621FA1ECF0065C50D /* PerspectiveCurveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveCurveTests.swift; sourceTree = "<group>"; };
+		CE938DE2234A825900BA80C0 /* PerspectiveMotionBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveMotionBehaviour.swift; sourceTree = "<group>"; };
 		CEDA7DED218B781D00AE2AB9 /* Scroll+MotionBehaviourSampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll+MotionBehaviourSampleVC.swift"; sourceTree = "<group>"; };
 		CEF2F98C21AF130C00649237 /* PerspectiveScrollBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveScrollBehaviour.swift; sourceTree = "<group>"; };
-		CEF2F98D21AF130C00649237 /* PerspectiveMotionBehabiour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveMotionBehabiour.swift; sourceTree = "<group>"; };
 		CEF2F99021AF179E00649237 /* PerspectiveCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveCurve.swift; sourceTree = "<group>"; };
 		CEF2F99521AF197F00649237 /* PerspectiveLinearCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveLinearCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,7 +214,7 @@
 		CEF2F98B21AF130C00649237 /* behaviours */ = {
 			isa = PBXGroup;
 			children = (
-				CEF2F98D21AF130C00649237 /* PerspectiveMotionBehabiour.swift */,
+				CE938DE2234A825900BA80C0 /* PerspectiveMotionBehaviour.swift */,
 				CEF2F98C21AF130C00649237 /* PerspectiveScrollBehaviour.swift */,
 			);
 			path = behaviours;
@@ -407,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE938DE4234A825F00BA80C0 /* PerspectiveMotionBehaviour.swift in Sources */,
 				CE8880BE21F880240065C50D /* PerspectiveSheet.swift in Sources */,
 				CE8880BB21F880240065C50D /* PerspectiveLinearCurve.swift in Sources */,
 				CE8880BA21F880240065C50D /* PerspectiveScrollBehaviour.swift in Sources */,
@@ -415,7 +416,6 @@
 				CE8880C021F880240065C50D /* PerspectiveView.swift in Sources */,
 				CE8880BD21F880240065C50D /* PerspectiveBehaviour.swift in Sources */,
 				CE8880C121F880240065C50D /* PerspectiveCurve.swift in Sources */,
-				CE8880B921F880240065C50D /* PerspectiveMotionBehabiour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

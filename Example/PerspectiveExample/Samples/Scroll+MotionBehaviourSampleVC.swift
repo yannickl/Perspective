@@ -30,7 +30,7 @@ import Perspective
 class ScrollMotionBehaviourSampleVC: UIViewController {
   @IBOutlet weak var perspectiveView: PerspectiveView!
 
-  let motionBehaviour = PerspectiveMotionBehabiour()
+  let motionBehaviour = PerspectiveMotionBehaviour()
 
   override func viewDidLoad() {
     super.viewDidLoad()

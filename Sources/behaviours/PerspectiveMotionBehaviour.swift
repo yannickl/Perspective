@@ -33,7 +33,7 @@ import UIKit
 
  Uses the accelerometer to update the offset of the perspective views.
  */
-public final class PerspectiveMotionBehabiour: PerspectiveBehaviour {
+public final class PerspectiveMotionBehaviour: PerspectiveBehaviour {
   private weak var delegate: PerspectiveBehaviourDelegate?
 
   public let identifier = "MotionBehavior"
@@ -51,7 +51,7 @@ public final class PerspectiveMotionBehabiour: PerspectiveBehaviour {
   /**
    Defines the orientation of the accelerometer sensor.
 
-   The default value is `PerspectiveMotionBehabior.Orientation.vertical`.
+   The default value is `PerspectiveMotionBehaviour.Orientation.vertical`.
    */
   public var orientation: Orientation = .vertical
 
@@ -102,8 +102,8 @@ public final class PerspectiveMotionBehabiour: PerspectiveBehaviour {
 /**
  The orientation of the motion behaviour sensor.
  */
-public extension PerspectiveMotionBehabiour {
-  public enum Orientation {
+public extension PerspectiveMotionBehaviour {
+  enum Orientation {
     /// The device is in landscape mode.
     case horizontal
     /// The device is in portrait mode.
